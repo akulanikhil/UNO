@@ -1,0 +1,3826 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    174531,       3818]
+NotebookOptionsPosition[    172050,       3769]
+NotebookOutlinePosition[    172487,       3786]
+CellTagsIndexPosition[    172444,       3783]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetAttributes", "[", 
+   RowBox[{"unoCardGenerator", ",", "HoldAll"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"unoCardGenerator", "[", "cardLst_", "]"}], ":=", 
+  RowBox[{"Module", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "i", ",", "info", ",", "number", ",", "color", ",", "num", ",", "step", 
+      ",", "cardSymbol1", ",", "cardSymbol2", ",", "cardSymbol3", ",", 
+      RowBox[{"showLst", "=", 
+       RowBox[{"{", "}"}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"For", "[", 
+      RowBox[{
+       RowBox[{"i", "=", "1"}], ",", 
+       RowBox[{"i", "\[LessEqual]", 
+        RowBox[{"Length", "[", "cardLst", "]"}]}], ",", 
+       RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"info", "=", 
+         RowBox[{"cardLst", "[", 
+          RowBox[{"[", 
+           RowBox[{"i", ",", "3"}], "]"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"number", "=", 
+         RowBox[{"cardLst", "[", 
+          RowBox[{"[", 
+           RowBox[{"i", ",", "2"}], "]"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"color", "=", 
+         RowBox[{"cardLst", "[", 
+          RowBox[{"[", 
+           RowBox[{"i", ",", "1"}], "]"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"cardSymbol1", "=", 
+         RowBox[{"Text", "[", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{
+            "number", ",", "White", ",", "Bold", ",", "Italic", ",", "20"}], 
+            "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"0.7", ",", "7.2"}], "}"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"cardSymbol2", "=", 
+         RowBox[{"Text", "[", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{
+            "number", ",", "White", ",", "Bold", ",", "Italic", ",", "20"}], 
+            "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"4.3", ",", "0.8"}], "}"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"cardSymbol3", "=", 
+         RowBox[{"Text", "[", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{
+            "number", ",", "color", ",", "Bold", ",", "Italic", ",", "80"}], 
+            "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"2.3", ",", "4"}], "}"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"number", "===", "\"\<skip\>\""}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"cardSymbol1", "=", 
+            RowBox[{"Translate", "[", 
+             RowBox[{
+              RowBox[{"Scale", "[", 
+               RowBox[{
+                RowBox[{"skipGraphic", "[", "White", "]"}], ",", "0.25"}], 
+               "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"0.8", ",", "7.2"}], "}"}]}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"cardSymbol2", "=", 
+            RowBox[{"Translate", "[", 
+             RowBox[{
+              RowBox[{"Scale", "[", 
+               RowBox[{
+                RowBox[{"skipGraphic", "[", "White", "]"}], ",", "0.25"}], 
+               "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"4.2", ",", "0.8"}], "}"}]}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"cardSymbol3", "=", 
+            RowBox[{"Translate", "[", 
+             RowBox[{
+              RowBox[{"Scale", "[", 
+               RowBox[{
+                RowBox[{"skipGraphic", "[", "color", "]"}], ",", "0.9"}], 
+               "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"2.5", ",", "4"}], "}"}]}], "]"}]}], ";"}]}], 
+         "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"number", "===", "\"\<reverse\>\""}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"cardSymbol1", "=", 
+            RowBox[{"Translate", "[", 
+             RowBox[{
+              RowBox[{"Scale", "[", 
+               RowBox[{
+                RowBox[{"reverseGraphic", "[", "White", "]"}], ",", "0.25"}], 
+               "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"0.3", ",", "7.5"}], "}"}]}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"cardSymbol2", "=", 
+            RowBox[{"Translate", "[", 
+             RowBox[{
+              RowBox[{"Scale", "[", 
+               RowBox[{
+                RowBox[{"reverseGraphic", "[", "White", "]"}], ",", "0.25"}], 
+               "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"3.8", ",", "1.4"}], "}"}]}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"cardSymbol3", "=", 
+            RowBox[{"Translate", "[", 
+             RowBox[{
+              RowBox[{"Scale", "[", 
+               RowBox[{
+                RowBox[{"reverseGraphic", "[", "color", "]"}], ",", "0.9"}], 
+               "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"2", ",", "4.5"}], "}"}]}], "]"}]}], ";"}]}], 
+         "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"number", "===", "\"\<wild\>\""}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"cardSymbol1", "=", 
+            RowBox[{"Translate", "[", 
+             RowBox[{
+              RowBox[{"Scale", "[", 
+               RowBox[{"wildGraphic", ",", "0.2"}], "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"-", "1.6"}], ",", "2.9"}], "}"}]}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"cardSymbol2", "=", 
+            RowBox[{"Translate", "[", 
+             RowBox[{
+              RowBox[{"Scale", "[", 
+               RowBox[{"wildGraphic", ",", "0.2"}], "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"1.6", ",", 
+                RowBox[{"-", "2.9"}]}], "}"}]}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"cardSymbol3", "=", "wildGraphic"}], ";"}]}], 
+         "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"num", "=", 
+         RowBox[{
+          RowBox[{"Mod", "[", 
+           RowBox[{"i", ",", "7"}], "]"}], "/.", 
+          RowBox[{"Dispatch", "[", 
+           RowBox[{"0", "\[Rule]", "7"}], "]"}]}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"step", "=", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"i", "-", "num"}], ")"}], "/", "7"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"info", "===", "\"\<selected\>\""}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"AppendTo", "[", 
+           RowBox[{"showLst", ",", 
+            RowBox[{"Translate", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"FaceForm", "[", "color", "]"}], ",", 
+                  RowBox[{"Rectangle", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"0.3", ",", "0.3"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"4.7", ",", "7.7"}], "}"}], ",", 
+                    RowBox[{"RoundingRadius", "\[Rule]", "0.2"}]}], "]"}]}], 
+                 "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"White", ",", 
+                  RowBox[{"Rotate", "[", 
+                   RowBox[{
+                    RowBox[{"Disk", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"2.5", ",", "4"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"3.5", ",", "1.9"}], "}"}]}], "]"}], ",", 
+                    RowBox[{"60", "Degree"}]}], "]"}]}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"EdgeForm", "[", 
+                   RowBox[{"{", 
+                    RowBox[{"Thin", ",", "Black"}], "}"}], "]"}], ",", 
+                  RowBox[{"FaceForm", "[", "Transparent", "]"}], ",", 
+                  RowBox[{"Rectangle", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "0"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"5", ",", "8"}], "}"}], ",", 
+                    RowBox[{"RoundingRadius", "\[Rule]", "0.4"}]}], "]"}]}], 
+                 "}"}], ",", "cardSymbol1", ",", "cardSymbol2", ",", 
+                "cardSymbol3", ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"EdgeForm", "[", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Thickness", "[", "0.005", "]"}], ",", "Green"}], 
+                    "}"}], "]"}], ",", 
+                  RowBox[{"FaceForm", "[", "Transparent", "]"}], ",", 
+                  RowBox[{"Rectangle", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "0.1"}], ",", 
+                    RowBox[{"-", "0.1"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"5.1", ",", "8.1"}], "}"}], ",", 
+                    RowBox[{"RoundingRadius", "\[Rule]", "0.5"}]}], "]"}]}], 
+                 "}"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"6", 
+                 RowBox[{"(", 
+                  RowBox[{"num", "-", "1"}], ")"}]}], ",", 
+                RowBox[{
+                 RowBox[{"-", "9"}], "step"}]}], "}"}]}], "]"}]}], "]"}], ",",
+           "\[IndentingNewLine]", 
+          RowBox[{"AppendTo", "[", 
+           RowBox[{"showLst", ",", 
+            RowBox[{"Translate", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"FaceForm", "[", "color", "]"}], ",", 
+                  RowBox[{"Rectangle", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"0.3", ",", "0.3"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"4.7", ",", "7.7"}], "}"}], ",", 
+                    RowBox[{"RoundingRadius", "\[Rule]", "0.2"}]}], "]"}]}], 
+                 "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"White", ",", 
+                  RowBox[{"Rotate", "[", 
+                   RowBox[{
+                    RowBox[{"Disk", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"2.5", ",", "4"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"3.5", ",", "1.9"}], "}"}]}], "]"}], ",", 
+                    RowBox[{"60", "Degree"}]}], "]"}]}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"EdgeForm", "[", 
+                   RowBox[{"{", 
+                    RowBox[{"Thin", ",", "Black"}], "}"}], "]"}], ",", 
+                  RowBox[{"FaceForm", "[", "Transparent", "]"}], ",", 
+                  RowBox[{"Rectangle", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "0"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"5", ",", "8"}], "}"}], ",", 
+                    RowBox[{"RoundingRadius", "\[Rule]", "0.4"}]}], "]"}]}], 
+                 "}"}], ",", "cardSymbol1", ",", "cardSymbol2", ",", 
+                "cardSymbol3"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"6", 
+                 RowBox[{"(", 
+                  RowBox[{"num", "-", "1"}], ")"}]}], ",", 
+                RowBox[{
+                 RowBox[{"-", "9"}], "step"}]}], "}"}]}], "]"}]}], "]"}]}], 
+         "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], 
+     ";", "\[IndentingNewLine]", 
+     RowBox[{"num", "=", 
+      RowBox[{"num", "+", "1"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"step", "=", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"i", "-", "num"}], ")"}], "/", "7"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"While", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"num", "\[LessEqual]", "7"}], "&&", 
+        RowBox[{"step", "\[LessEqual]", "1"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"showLst", ",", 
+          RowBox[{"Translate", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"FaceForm", "[", "Transparent", "]"}], ",", 
+              RowBox[{"Rectangle", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "0"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"5", ",", "8"}], "}"}], ",", 
+                RowBox[{"RoundingRadius", "\[Rule]", "0.4"}]}], "]"}]}], 
+             "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"6", 
+               RowBox[{"(", 
+                RowBox[{"num", "-", "1"}], ")"}]}], ",", 
+              RowBox[{
+               RowBox[{"-", "9"}], "step"}]}], "}"}]}], "]"}]}], "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"num", "++"}]}]}], "\[IndentingNewLine]", "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Return", "[", 
+      RowBox[{"Graphics", "[", 
+       RowBox[{"showLst", ",", 
+        RowBox[{"ImageSize", "\[Rule]", "Full"}]}], "]"}], "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->CompressedData["
+1:eJwd0H1Q0wUYB/C5CDEJeVUJWEAmhYQEI+bcpIBol1DAyu42iDtk4IYIx0uO
+txiQqAOMOKUTyFAQB1QQMlpAxJbAaLy/KEZ5aj9QcUwkCVg4+31/fzz3ue8f
+z3Pfe9ziUqJEdBqNFksOVJc5soLz9O/0VERyYK7LejSckAXFwF1dx+OgW1Pm
+YfhK0XAGNMqlmZDOH82GVnOTlM6Jtm3wR74HZUNq5t73SC+GSt+CPVs7wuCF
+vlo+rA24JYSbBiTx0OW5d8VwcEqcDD/L9pbBiJQblP9OPfkCXot79QRc6PKX
+QxtFdSnMXWQoIS9KOgDlwv066JvCG4FtDTYTUE14zsDSe59rPiStclgcgMVC
+1jDkHeukNJazb8Owy6JH0HvswhPYbr7yfARpWgDLGvI8OJTxrzU6wMH0E9th
+02SNE9z9g9AFNg9blEGvF/Vfwd8VrF8jSbvvjqoh3Uo1BJ139o7BilVOUxT+
+FV7ZDP/wGWyB8qXiXrjp5EktNPZf08F1C+txKNHGz8K22BfmoUnSaoIHes+a
+8Ukj7UWbYVRMug30v6fcDR9ncL0h7WX5PqhSlmgukQbt+Y6ygzdbUUc6Vqun
+1A4EKmBSeCjlwQCvDUiL4FBeFWTQ6kmJ0kQ6NHpasmB8SQ0Hvh06GgzTHqYk
+wDpXbjJUfdOUBWX7jor688leBkE6NDqZpDDbszcPaqKZhdA2t4Cy86/Q07BS
+ZF0Gnb2yzsGqMBll/srkeRivLamCp2qkCljR2E65OO5+FcZxb/9EafV3F3zE
+nqfk7RXooCxRPQ1Xc/QG6HvUYhn+Uui2CtMlsxuw9MGVHQOkrcfPe8CZ4tI3
+YIGj0Qf+luPGgde7LbkwJKiFoHLB/AM4sWJmgIR7MyVze/gaXOtNoRQTcyY4
+1hJG15Ja5xCvwzSFrz9cPrSDDWndNhzosig5uED6tVRFyZVzJND0vTwZqnVZ
+6XAjzycDMh/SqmFE6+l6OPdR3wiMFY+PQu0x+5uQkfQtAV961l92WEbu928p
+h06XfRuhOy+2A4oKgjvh8nR7N7zEZ6qhwTy1H/oWPR2HcjpxHV6MFBJw7Vn0
+IizX1p87QqpQdVdCfYt4po60SpB6EwrWiTuwyT7kLtQIp+ZhT7hkAZp/+o8B
+EiP/PYYJh6RrcG2SubWe1C31zDaosY+wg/kfx70J2c2jlJ1t5WzI5QQegOMO
+7MArpCzHvhC49L4hBm7URKfBU7yidXjGVrBFQbqnmrENWjRU2MGGnY6ukLn0
+wS44VMfV/Ex6xC9MB12VllNwyGz/NNTzlbMwNzf1FixM8nsKEz65v7kT9xgO
+VvBLvxt28KxOxIB/3rnvDv8HTyQsUg==
+  "],
+ CellLabel->
+  "In[551]:=",ExpressionUUID->"8af7f6bf-3f11-4d2d-8371-408106a6ed45"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Graphics", "[", 
+  RowBox[{
+   RowBox[{"cardSelector", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"Green", ",", "3"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"Blue", ",", "\"\<skip\>\""}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"Red", ",", "\"\<reverse\>\""}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"Black", ",", "\"\<wild\>\""}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"Green", ",", "3"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"Blue", ",", "\"\<skip\>\""}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"Red", ",", "\"\<reverse\>\""}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"Black", ",", "\"\<wild\>\""}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"Green", ",", "3"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"Blue", ",", "\"\<skip\>\""}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"Red", ",", "\"\<reverse\>\""}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"Black", ",", "\"\<wild\>\""}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"Green", ",", "3"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"Blue", ",", "\"\<skip\>\""}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"Red", ",", "\"\<reverse\>\""}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"Black", ",", "\"\<wild\>\""}], "}"}]}], "}"}], "]"}], ",", 
+   RowBox[{"ImageSize", "\[Rule]", "Full"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8255502585481887`*^9, 3.825550280346208*^9}, {
+   3.8255503224076347`*^9, 3.8255503253842573`*^9}, {3.8255506174356656`*^9, 
+   3.8255506180122223`*^9}, {3.8255507220654907`*^9, 3.825550736559348*^9}, {
+   3.8255513475777435`*^9, 3.825551374052743*^9}, {3.825551442438893*^9, 
+   3.825551461714142*^9}, {3.8255516132981224`*^9, 3.8255516173997626`*^9}, 
+   3.825585058568548*^9, 3.825585448319765*^9},
+ CellLabel->
+  "In[515]:=",ExpressionUUID->"22eed495-cc49-4907-a318-2abf50b1bd91"],
+
+Cell[BoxData[
+ GraphicsBox[{{GeometricTransformationBox[{
+      {FaceForm[RGBColor[0, 1, 0]], RectangleBox[{0.3, 0.3}, {4.7, 7.7},
+        RoundingRadius->0.2]}, 
+      {GrayLevel[1], 
+       GeometricTransformationBox[
+        DiskBox[{2.5, 4}, {3.5, 1.9}], {{{0.5, -0.8660254037844386}, {
+         0.8660254037844386, 0.5}}, Center}]}, 
+      {EdgeForm[{GrayLevel[0], Thickness[Tiny]}], FaceForm[{GrayLevel[0], 
+       Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+        RoundingRadius->0.4]}, InsetBox[
+       StyleBox["3",
+        StripOnInput->False,
+        LineColor->GrayLevel[1],
+        FrontFaceColor->GrayLevel[1],
+        BackFaceColor->GrayLevel[1],
+        GraphicsColor->GrayLevel[1],
+        FontSize->20,
+        FontWeight->Bold,
+        FontSlant->Italic,
+        FontColor->GrayLevel[1]], {0.7, 7.2}], InsetBox[
+       StyleBox["3",
+        StripOnInput->False,
+        LineColor->GrayLevel[1],
+        FrontFaceColor->GrayLevel[1],
+        BackFaceColor->GrayLevel[1],
+        GraphicsColor->GrayLevel[1],
+        FontSize->20,
+        FontWeight->Bold,
+        FontSlant->Italic,
+        FontColor->GrayLevel[1]], {4.3, 0.8}], InsetBox[
+       StyleBox["3",
+        StripOnInput->False,
+        LineColor->RGBColor[0, 1, 0],
+        FrontFaceColor->RGBColor[0, 1, 0],
+        BackFaceColor->RGBColor[0, 1, 0],
+        GraphicsColor->RGBColor[0, 1, 0],
+        FontSize->80,
+        FontWeight->Bold,
+        FontSlant->Italic,
+        FontColor->RGBColor[0, 1, 0]], {2.3, 4}]}, {0, 0}], 
+    GeometricTransformationBox[
+     {EdgeForm[{RGBColor[0, 1, 0], Thickness[0.005]}], FaceForm[{GrayLevel[0],
+       Opacity[0]}], RectangleBox[{-0.1, -0.1}, {5.1, 8.1},
+       RoundingRadius->0.5]}, {0, 0}]}, {GeometricTransformationBox[{
+      {FaceForm[RGBColor[0, 0, 1]], RectangleBox[{0.3, 0.3}, {4.7, 7.7},
+        RoundingRadius->0.2]}, 
+      {GrayLevel[1], 
+       GeometricTransformationBox[
+        DiskBox[{2.5, 4}, {3.5, 1.9}], {{{0.5, -0.8660254037844386}, {
+         0.8660254037844386, 0.5}}, Center}]}, 
+      {EdgeForm[{GrayLevel[0], Thickness[Tiny]}], FaceForm[{GrayLevel[0], 
+       Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+        RoundingRadius->0.4]}, 
+      GeometricTransformationBox[GeometricTransformationBox[{
+         {GrayLevel[1], 
+          
+          InterpretationBox[
+           FilledCurveBox[{{
+             BSplineCurve[{{0., -1.5}, {1.5, -1.5}, {1.5, 1.5}, {0., 
+               1.5}, {-1.5, 1.5}, {-1.5, -1.5}, {0., -1.5}}, 
+               SplineKnots -> {
+                0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                 Rational[3, 4], 1, 1, 1}, 
+               SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}, {
+             BSplineCurve[{{0., -1.1}, {1.1, -1.1}, {1.1, 1.1}, {0., 
+               1.1}, {-1.1, 1.1}, {-1.1, -1.1}, {0., -1.1}}, 
+               SplineKnots -> {
+                0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                 Rational[3, 4], 1, 1, 1}, 
+               SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}}],
+           Annulus[{0, 0}, {1.1, 1.5}]]}, 
+         {GrayLevel[1], 
+          PolygonBox[{{-1, -1}, {-0.6, -1.2}, {1, 1}, {0.6, 1.2}}]}}, {{{0.25,
+          0.}, {0., 0.25}}, Center}], {0.8, 7.2}], 
+      GeometricTransformationBox[GeometricTransformationBox[{
+         {GrayLevel[1], 
+          
+          InterpretationBox[
+           FilledCurveBox[{{
+             BSplineCurve[{{0., -1.5}, {1.5, -1.5}, {1.5, 1.5}, {0., 
+               1.5}, {-1.5, 1.5}, {-1.5, -1.5}, {0., -1.5}}, 
+               SplineKnots -> {
+                0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                 Rational[3, 4], 1, 1, 1}, 
+               SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}, {
+             BSplineCurve[{{0., -1.1}, {1.1, -1.1}, {1.1, 1.1}, {0., 
+               1.1}, {-1.1, 1.1}, {-1.1, -1.1}, {0., -1.1}}, 
+               SplineKnots -> {
+                0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                 Rational[3, 4], 1, 1, 1}, 
+               SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}}],
+           Annulus[{0, 0}, {1.1, 1.5}]]}, 
+         {GrayLevel[1], 
+          PolygonBox[{{-1, -1}, {-0.6, -1.2}, {1, 1}, {0.6, 1.2}}]}}, {{{0.25,
+          0.}, {0., 0.25}}, Center}], {4.2, 0.8}], 
+      GeometricTransformationBox[GeometricTransformationBox[{
+         {RGBColor[0, 0, 1], 
+          
+          InterpretationBox[
+           FilledCurveBox[{{
+             BSplineCurve[{{0., -1.5}, {1.5, -1.5}, {1.5, 1.5}, {0., 
+               1.5}, {-1.5, 1.5}, {-1.5, -1.5}, {0., -1.5}}, 
+               SplineKnots -> {
+                0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                 Rational[3, 4], 1, 1, 1}, 
+               SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}, {
+             BSplineCurve[{{0., -1.1}, {1.1, -1.1}, {1.1, 1.1}, {0., 
+               1.1}, {-1.1, 1.1}, {-1.1, -1.1}, {0., -1.1}}, 
+               SplineKnots -> {
+                0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                 Rational[3, 4], 1, 1, 1}, 
+               SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}}],
+           Annulus[{0, 0}, {1.1, 1.5}]]}, 
+         {RGBColor[0, 0, 1], 
+          PolygonBox[{{-1, -1}, {-0.6, -1.2}, {1, 1}, {0.6, 1.2}}]}}, {{{0.9, 
+         0.}, {0., 0.9}}, Center}], {2.5, 4}]}, {6, 0}], 
+    GeometricTransformationBox[
+     {EdgeForm[{RGBColor[0, 1, 0], Thickness[0.005]}], FaceForm[{GrayLevel[0],
+       Opacity[0]}], RectangleBox[{-0.1, -0.1}, {5.1, 8.1},
+       RoundingRadius->0.5]}, {6, 0}]}, {GeometricTransformationBox[{
+      {FaceForm[RGBColor[1, 0, 0]], RectangleBox[{0.3, 0.3}, {4.7, 7.7},
+        RoundingRadius->0.2]}, 
+      {GrayLevel[1], 
+       GeometricTransformationBox[
+        DiskBox[{2.5, 4}, {3.5, 1.9}], {{{0.5, -0.8660254037844386}, {
+         0.8660254037844386, 0.5}}, Center}]}, 
+      {EdgeForm[{GrayLevel[0], Thickness[Tiny]}], FaceForm[{GrayLevel[0], 
+       Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+        RoundingRadius->0.4]}, 
+      GeometricTransformationBox[
+       GeometricTransformationBox[{GeometricTransformationBox[{
+           {FaceForm[GrayLevel[1]], 
+            DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+           {FaceForm[GrayLevel[1]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+           {FaceForm[GrayLevel[1]], 
+            TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+             "Triangle"]}}, {{{0.7071067811865475, -0.7071067811865475}, {
+           0.7071067811865475, 0.7071067811865475}}, Center}], 
+         GeometricTransformationBox[
+          GeometricTransformationBox[GeometricTransformationBox[{
+             {FaceForm[GrayLevel[1]], 
+              DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+             {FaceForm[GrayLevel[1]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+             {FaceForm[GrayLevel[1]], 
+              TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+               "Triangle"]}}, {{{-1, 0}, {0, -1}}, Center}], {0, -1.9}], {{{
+           0.7071067811865475, -0.7071067811865475}, {0.7071067811865475, 
+           0.7071067811865475}}, Center}]}, {{{0.25, 0.}, {0., 0.25}}, 
+         Center}], {0.3, 7.5}], 
+      GeometricTransformationBox[
+       GeometricTransformationBox[{GeometricTransformationBox[{
+           {FaceForm[GrayLevel[1]], 
+            DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+           {FaceForm[GrayLevel[1]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+           {FaceForm[GrayLevel[1]], 
+            TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+             "Triangle"]}}, {{{0.7071067811865475, -0.7071067811865475}, {
+           0.7071067811865475, 0.7071067811865475}}, Center}], 
+         GeometricTransformationBox[
+          GeometricTransformationBox[GeometricTransformationBox[{
+             {FaceForm[GrayLevel[1]], 
+              DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+             {FaceForm[GrayLevel[1]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+             {FaceForm[GrayLevel[1]], 
+              TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+               "Triangle"]}}, {{{-1, 0}, {0, -1}}, Center}], {0, -1.9}], {{{
+           0.7071067811865475, -0.7071067811865475}, {0.7071067811865475, 
+           0.7071067811865475}}, Center}]}, {{{0.25, 0.}, {0., 0.25}}, 
+         Center}], {3.8, 1.4}], 
+      GeometricTransformationBox[
+       GeometricTransformationBox[{GeometricTransformationBox[{
+           {FaceForm[RGBColor[1, 0, 0]], 
+            DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+           {FaceForm[RGBColor[1, 0, 0]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+           {FaceForm[RGBColor[1, 0, 0]], 
+            TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+             "Triangle"]}}, {{{0.7071067811865475, -0.7071067811865475}, {
+           0.7071067811865475, 0.7071067811865475}}, Center}], 
+         GeometricTransformationBox[
+          GeometricTransformationBox[GeometricTransformationBox[{
+             {FaceForm[RGBColor[1, 0, 0]], 
+              DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+             {FaceForm[RGBColor[1, 0, 0]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+             {FaceForm[RGBColor[1, 0, 0]], 
+              TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+               "Triangle"]}}, {{{-1, 0}, {0, -1}}, Center}], {0, -1.9}], {{{
+           0.7071067811865475, -0.7071067811865475}, {0.7071067811865475, 
+           0.7071067811865475}}, Center}]}, {{{0.9, 0.}, {0., 0.9}}, 
+         Center}], {2, 4.5}]}, {12, 0}], GeometricTransformationBox[
+     {EdgeForm[{RGBColor[0, 1, 0], Thickness[0.005]}], FaceForm[{GrayLevel[0],
+       Opacity[0]}], RectangleBox[{-0.1, -0.1}, {5.1, 8.1},
+       RoundingRadius->0.5]}, {12, 0}]}, {GeometricTransformationBox[{
+      {FaceForm[GrayLevel[0]], RectangleBox[{0.3, 0.3}, {4.7, 7.7},
+        RoundingRadius->0.2]}, 
+      {GrayLevel[1], 
+       GeometricTransformationBox[
+        DiskBox[{2.5, 4}, {3.5, 1.9}], {{{0.5, -0.8660254037844386}, {
+         0.8660254037844386, 0.5}}, Center}]}, 
+      {EdgeForm[{GrayLevel[0], Thickness[Tiny]}], FaceForm[{GrayLevel[0], 
+       Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+        RoundingRadius->0.4]}, 
+      GeometricTransformationBox[
+       GeometricTransformationBox[{GeometricTransformationBox[
+          {GrayLevel[1], DiskBox[{2.5, 4}, {3.5, 1.9}]}, {{{
+           0.5, -0.8660254037844386}, {0.8660254037844386, 0.5}}, Center}], 
+         GeometricTransformationBox[
+          {RGBColor[0, 0, 1], 
+           DiskBox[{2.5, 4}, {3.3, 1.7}, {-1.2817698026646356`, 
+            0.2827433388230814}]}, {{{0.5, -0.8660254037844386}, {
+           0.8660254037844386, 0.5}}, {
+           4.714101615137754, -0.16506350946109638`}}], 
+         GeometricTransformationBox[
+          {RGBColor[1, 0, 0], 
+           DiskBox[{2.5, 4}, {3.3, 1.7}, {0.2827433388230814, 
+            1.8598228509251575`}]}, {{{0.5, -0.8660254037844386}, {
+           0.8660254037844386, 0.5}}, {
+           4.714101615137754, -0.16506350946109638`}}], 
+         GeometricTransformationBox[
+          {RGBColor[1, 1, 0], 
+           DiskBox[{2.5, 4}, {3.3, 1.7}, {1.8598228509251575`, 
+            3.4243359924128747`}]}, {{{0.5, -0.8660254037844386}, {
+           0.8660254037844386, 0.5}}, {
+           4.714101615137754, -0.16506350946109638`}}], 
+         GeometricTransformationBox[
+          {RGBColor[0, 1, 0], 
+           DiskBox[{2.5, 4}, {3.3, 1.7}, {3.4243359924128747`, 
+            5.001415504514951}]}, {{{0.5, -0.8660254037844386}, {
+           0.8660254037844386, 0.5}}, {
+           4.714101615137754, -0.16506350946109638`}}]}, {{{0.2, 0.}, {0., 
+         0.2}}, Center}], {-1.6, 2.9}], 
+      GeometricTransformationBox[
+       GeometricTransformationBox[{GeometricTransformationBox[
+          {GrayLevel[1], DiskBox[{2.5, 4}, {3.5, 1.9}]}, {{{
+           0.5, -0.8660254037844386}, {0.8660254037844386, 0.5}}, Center}], 
+         GeometricTransformationBox[
+          {RGBColor[0, 0, 1], 
+           DiskBox[{2.5, 4}, {3.3, 1.7}, {-1.2817698026646356`, 
+            0.2827433388230814}]}, {{{0.5, -0.8660254037844386}, {
+           0.8660254037844386, 0.5}}, {
+           4.714101615137754, -0.16506350946109638`}}], 
+         GeometricTransformationBox[
+          {RGBColor[1, 0, 0], 
+           DiskBox[{2.5, 4}, {3.3, 1.7}, {0.2827433388230814, 
+            1.8598228509251575`}]}, {{{0.5, -0.8660254037844386}, {
+           0.8660254037844386, 0.5}}, {
+           4.714101615137754, -0.16506350946109638`}}], 
+         GeometricTransformationBox[
+          {RGBColor[1, 1, 0], 
+           DiskBox[{2.5, 4}, {3.3, 1.7}, {1.8598228509251575`, 
+            3.4243359924128747`}]}, {{{0.5, -0.8660254037844386}, {
+           0.8660254037844386, 0.5}}, {
+           4.714101615137754, -0.16506350946109638`}}], 
+         GeometricTransformationBox[
+          {RGBColor[0, 1, 0], 
+           DiskBox[{2.5, 4}, {3.3, 1.7}, {3.4243359924128747`, 
+            5.001415504514951}]}, {{{0.5, -0.8660254037844386}, {
+           0.8660254037844386, 0.5}}, {
+           4.714101615137754, -0.16506350946109638`}}]}, {{{0.2, 0.}, {0., 
+         0.2}}, Center}], {1.6, -2.9}], {GeometricTransformationBox[
+        {GrayLevel[1], DiskBox[{2.5, 4}, {3.5, 1.9}]}, {{{
+         0.5, -0.8660254037844386}, {0.8660254037844386, 0.5}}, Center}], 
+       GeometricTransformationBox[
+        {RGBColor[0, 0, 1], 
+         DiskBox[{2.5, 4}, {3.3, 1.7}, {-1.2817698026646356`, 
+          0.2827433388230814}]}, {{{0.5, -0.8660254037844386}, {
+         0.8660254037844386, 0.5}}, {
+         4.714101615137754, -0.16506350946109638`}}], 
+       GeometricTransformationBox[
+        {RGBColor[1, 0, 0], 
+         DiskBox[{2.5, 4}, {3.3, 1.7}, {0.2827433388230814, 
+          1.8598228509251575`}]}, {{{0.5, -0.8660254037844386}, {
+         0.8660254037844386, 0.5}}, {
+         4.714101615137754, -0.16506350946109638`}}], 
+       GeometricTransformationBox[
+        {RGBColor[1, 1, 0], 
+         DiskBox[{2.5, 4}, {3.3, 1.7}, {1.8598228509251575`, 
+          3.4243359924128747`}]}, {{{0.5, -0.8660254037844386}, {
+         0.8660254037844386, 0.5}}, {
+         4.714101615137754, -0.16506350946109638`}}], 
+       GeometricTransformationBox[
+        {RGBColor[0, 1, 0], 
+         DiskBox[{2.5, 4}, {3.3, 1.7}, {3.4243359924128747`, 
+          5.001415504514951}]}, {{{0.5, -0.8660254037844386}, {
+         0.8660254037844386, 0.5}}, {
+         4.714101615137754, -0.16506350946109638`}}]}}, {18, 0}], 
+    GeometricTransformationBox[
+     {EdgeForm[{RGBColor[0, 1, 0], Thickness[0.005]}], FaceForm[{GrayLevel[0],
+       Opacity[0]}], RectangleBox[{-0.1, -0.1}, {5.1, 8.1},
+       RoundingRadius->0.5]}, {18, 0}]}, {GeometricTransformationBox[{
+      {FaceForm[RGBColor[0, 1, 0]], RectangleBox[{0.3, 0.3}, {4.7, 7.7},
+        RoundingRadius->0.2]}, 
+      {GrayLevel[1], 
+       GeometricTransformationBox[
+        DiskBox[{2.5, 4}, {3.5, 1.9}], {{{0.5, -0.8660254037844386}, {
+         0.8660254037844386, 0.5}}, Center}]}, 
+      {EdgeForm[{GrayLevel[0], Thickness[Tiny]}], FaceForm[{GrayLevel[0], 
+       Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+        RoundingRadius->0.4]}, InsetBox[
+       StyleBox["3",
+        StripOnInput->False,
+        LineColor->GrayLevel[1],
+        FrontFaceColor->GrayLevel[1],
+        BackFaceColor->GrayLevel[1],
+        GraphicsColor->GrayLevel[1],
+        FontSize->20,
+        FontWeight->Bold,
+        FontSlant->Italic,
+        FontColor->GrayLevel[1]], {0.7, 7.2}], InsetBox[
+       StyleBox["3",
+        StripOnInput->False,
+        LineColor->GrayLevel[1],
+        FrontFaceColor->GrayLevel[1],
+        BackFaceColor->GrayLevel[1],
+        GraphicsColor->GrayLevel[1],
+        FontSize->20,
+        FontWeight->Bold,
+        FontSlant->Italic,
+        FontColor->GrayLevel[1]], {4.3, 0.8}], InsetBox[
+       StyleBox["3",
+        StripOnInput->False,
+        LineColor->RGBColor[0, 1, 0],
+        FrontFaceColor->RGBColor[0, 1, 0],
+        BackFaceColor->RGBColor[0, 1, 0],
+        GraphicsColor->RGBColor[0, 1, 0],
+        FontSize->80,
+        FontWeight->Bold,
+        FontSlant->Italic,
+        FontColor->RGBColor[0, 1, 0]], {2.3, 4}]}, {24, 0}], 
+    GeometricTransformationBox[
+     {EdgeForm[{RGBColor[0, 1, 0], Thickness[0.005]}], FaceForm[{GrayLevel[0],
+       Opacity[0]}], RectangleBox[{-0.1, -0.1}, {5.1, 8.1},
+       RoundingRadius->0.5]}, {24, 0}]}, {GeometricTransformationBox[{
+      {FaceForm[RGBColor[0, 0, 1]], RectangleBox[{0.3, 0.3}, {4.7, 7.7},
+        RoundingRadius->0.2]}, 
+      {GrayLevel[1], 
+       GeometricTransformationBox[
+        DiskBox[{2.5, 4}, {3.5, 1.9}], {{{0.5, -0.8660254037844386}, {
+         0.8660254037844386, 0.5}}, Center}]}, 
+      {EdgeForm[{GrayLevel[0], Thickness[Tiny]}], FaceForm[{GrayLevel[0], 
+       Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+        RoundingRadius->0.4]}, 
+      GeometricTransformationBox[GeometricTransformationBox[{
+         {GrayLevel[1], 
+          
+          InterpretationBox[
+           FilledCurveBox[{{
+             BSplineCurve[{{0., -1.5}, {1.5, -1.5}, {1.5, 1.5}, {0., 
+               1.5}, {-1.5, 1.5}, {-1.5, -1.5}, {0., -1.5}}, 
+               SplineKnots -> {
+                0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                 Rational[3, 4], 1, 1, 1}, 
+               SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}, {
+             BSplineCurve[{{0., -1.1}, {1.1, -1.1}, {1.1, 1.1}, {0., 
+               1.1}, {-1.1, 1.1}, {-1.1, -1.1}, {0., -1.1}}, 
+               SplineKnots -> {
+                0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                 Rational[3, 4], 1, 1, 1}, 
+               SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}}],
+           Annulus[{0, 0}, {1.1, 1.5}]]}, 
+         {GrayLevel[1], 
+          PolygonBox[{{-1, -1}, {-0.6, -1.2}, {1, 1}, {0.6, 1.2}}]}}, {{{0.25,
+          0.}, {0., 0.25}}, Center}], {0.8, 7.2}], 
+      GeometricTransformationBox[GeometricTransformationBox[{
+         {GrayLevel[1], 
+          
+          InterpretationBox[
+           FilledCurveBox[{{
+             BSplineCurve[{{0., -1.5}, {1.5, -1.5}, {1.5, 1.5}, {0., 
+               1.5}, {-1.5, 1.5}, {-1.5, -1.5}, {0., -1.5}}, 
+               SplineKnots -> {
+                0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                 Rational[3, 4], 1, 1, 1}, 
+               SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}, {
+             BSplineCurve[{{0., -1.1}, {1.1, -1.1}, {1.1, 1.1}, {0., 
+               1.1}, {-1.1, 1.1}, {-1.1, -1.1}, {0., -1.1}}, 
+               SplineKnots -> {
+                0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                 Rational[3, 4], 1, 1, 1}, 
+               SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}}],
+           Annulus[{0, 0}, {1.1, 1.5}]]}, 
+         {GrayLevel[1], 
+          PolygonBox[{{-1, -1}, {-0.6, -1.2}, {1, 1}, {0.6, 1.2}}]}}, {{{0.25,
+          0.}, {0., 0.25}}, Center}], {4.2, 0.8}], 
+      GeometricTransformationBox[GeometricTransformationBox[{
+         {RGBColor[0, 0, 1], 
+          
+          InterpretationBox[
+           FilledCurveBox[{{
+             BSplineCurve[{{0., -1.5}, {1.5, -1.5}, {1.5, 1.5}, {0., 
+               1.5}, {-1.5, 1.5}, {-1.5, -1.5}, {0., -1.5}}, 
+               SplineKnots -> {
+                0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                 Rational[3, 4], 1, 1, 1}, 
+               SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}, {
+             BSplineCurve[{{0., -1.1}, {1.1, -1.1}, {1.1, 1.1}, {0., 
+               1.1}, {-1.1, 1.1}, {-1.1, -1.1}, {0., -1.1}}, 
+               SplineKnots -> {
+                0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                 Rational[3, 4], 1, 1, 1}, 
+               SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}}],
+           Annulus[{0, 0}, {1.1, 1.5}]]}, 
+         {RGBColor[0, 0, 1], 
+          PolygonBox[{{-1, -1}, {-0.6, -1.2}, {1, 1}, {0.6, 1.2}}]}}, {{{0.9, 
+         0.}, {0., 0.9}}, Center}], {2.5, 4}]}, {30, 0}], 
+    GeometricTransformationBox[
+     {EdgeForm[{RGBColor[0, 1, 0], Thickness[0.005]}], FaceForm[{GrayLevel[0],
+       Opacity[0]}], RectangleBox[{-0.1, -0.1}, {5.1, 8.1},
+       RoundingRadius->0.5]}, {30, 0}]}, {GeometricTransformationBox[{
+      {FaceForm[RGBColor[1, 0, 0]], RectangleBox[{0.3, 0.3}, {4.7, 7.7},
+        RoundingRadius->0.2]}, 
+      {GrayLevel[1], 
+       GeometricTransformationBox[
+        DiskBox[{2.5, 4}, {3.5, 1.9}], {{{0.5, -0.8660254037844386}, {
+         0.8660254037844386, 0.5}}, Center}]}, 
+      {EdgeForm[{GrayLevel[0], Thickness[Tiny]}], FaceForm[{GrayLevel[0], 
+       Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+        RoundingRadius->0.4]}, 
+      GeometricTransformationBox[
+       GeometricTransformationBox[{GeometricTransformationBox[{
+           {FaceForm[GrayLevel[1]], 
+            DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+           {FaceForm[GrayLevel[1]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+           {FaceForm[GrayLevel[1]], 
+            TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+             "Triangle"]}}, {{{0.7071067811865475, -0.7071067811865475}, {
+           0.7071067811865475, 0.7071067811865475}}, Center}], 
+         GeometricTransformationBox[
+          GeometricTransformationBox[GeometricTransformationBox[{
+             {FaceForm[GrayLevel[1]], 
+              DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+             {FaceForm[GrayLevel[1]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+             {FaceForm[GrayLevel[1]], 
+              TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+               "Triangle"]}}, {{{-1, 0}, {0, -1}}, Center}], {0, -1.9}], {{{
+           0.7071067811865475, -0.7071067811865475}, {0.7071067811865475, 
+           0.7071067811865475}}, Center}]}, {{{0.25, 0.}, {0., 0.25}}, 
+         Center}], {0.3, 7.5}], 
+      GeometricTransformationBox[
+       GeometricTransformationBox[{GeometricTransformationBox[{
+           {FaceForm[GrayLevel[1]], 
+            DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+           {FaceForm[GrayLevel[1]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+           {FaceForm[GrayLevel[1]], 
+            TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+             "Triangle"]}}, {{{0.7071067811865475, -0.7071067811865475}, {
+           0.7071067811865475, 0.7071067811865475}}, Center}], 
+         GeometricTransformationBox[
+          GeometricTransformationBox[GeometricTransformationBox[{
+             {FaceForm[GrayLevel[1]], 
+              DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+             {FaceForm[GrayLevel[1]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+             {FaceForm[GrayLevel[1]], 
+              TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+               "Triangle"]}}, {{{-1, 0}, {0, -1}}, Center}], {0, -1.9}], {{{
+           0.7071067811865475, -0.7071067811865475}, {0.7071067811865475, 
+           0.7071067811865475}}, Center}]}, {{{0.25, 0.}, {0., 0.25}}, 
+         Center}], {3.8, 1.4}], 
+      GeometricTransformationBox[
+       GeometricTransformationBox[{GeometricTransformationBox[{
+           {FaceForm[RGBColor[1, 0, 0]], 
+            DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+           {FaceForm[RGBColor[1, 0, 0]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+           {FaceForm[RGBColor[1, 0, 0]], 
+            TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+             "Triangle"]}}, {{{0.7071067811865475, -0.7071067811865475}, {
+           0.7071067811865475, 0.7071067811865475}}, Center}], 
+         GeometricTransformationBox[
+          GeometricTransformationBox[GeometricTransformationBox[{
+             {FaceForm[RGBColor[1, 0, 0]], 
+              DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+             {FaceForm[RGBColor[1, 0, 0]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+             {FaceForm[RGBColor[1, 0, 0]], 
+              TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+               "Triangle"]}}, {{{-1, 0}, {0, -1}}, Center}], {0, -1.9}], {{{
+           0.7071067811865475, -0.7071067811865475}, {0.7071067811865475, 
+           0.7071067811865475}}, Center}]}, {{{0.9, 0.}, {0., 0.9}}, 
+         Center}], {2, 4.5}]}, {36, 0}], GeometricTransformationBox[
+     {EdgeForm[{RGBColor[0, 1, 0], Thickness[0.005]}], FaceForm[{GrayLevel[0],
+       Opacity[0]}], RectangleBox[{-0.1, -0.1}, {5.1, 8.1},
+       RoundingRadius->0.5]}, {36, 0}]}, {GeometricTransformationBox[{
+      {FaceForm[GrayLevel[0]], RectangleBox[{0.3, 0.3}, {4.7, 7.7},
+        RoundingRadius->0.2]}, 
+      {GrayLevel[1], 
+       GeometricTransformationBox[
+        DiskBox[{2.5, 4}, {3.5, 1.9}], {{{0.5, -0.8660254037844386}, {
+         0.8660254037844386, 0.5}}, Center}]}, 
+      {EdgeForm[{GrayLevel[0], Thickness[Tiny]}], FaceForm[{GrayLevel[0], 
+       Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+        RoundingRadius->0.4]}, 
+      GeometricTransformationBox[
+       GeometricTransformationBox[{GeometricTransformationBox[
+          {GrayLevel[1], DiskBox[{2.5, 4}, {3.5, 1.9}]}, {{{
+           0.5, -0.8660254037844386}, {0.8660254037844386, 0.5}}, Center}], 
+         GeometricTransformationBox[
+          {RGBColor[0, 0, 1], 
+           DiskBox[{2.5, 4}, {3.3, 1.7}, {-1.2817698026646356`, 
+            0.2827433388230814}]}, {{{0.5, -0.8660254037844386}, {
+           0.8660254037844386, 0.5}}, {
+           4.714101615137754, -0.16506350946109638`}}], 
+         GeometricTransformationBox[
+          {RGBColor[1, 0, 0], 
+           DiskBox[{2.5, 4}, {3.3, 1.7}, {0.2827433388230814, 
+            1.8598228509251575`}]}, {{{0.5, -0.8660254037844386}, {
+           0.8660254037844386, 0.5}}, {
+           4.714101615137754, -0.16506350946109638`}}], 
+         GeometricTransformationBox[
+          {RGBColor[1, 1, 0], 
+           DiskBox[{2.5, 4}, {3.3, 1.7}, {1.8598228509251575`, 
+            3.4243359924128747`}]}, {{{0.5, -0.8660254037844386}, {
+           0.8660254037844386, 0.5}}, {
+           4.714101615137754, -0.16506350946109638`}}], 
+         GeometricTransformationBox[
+          {RGBColor[0, 1, 0], 
+           DiskBox[{2.5, 4}, {3.3, 1.7}, {3.4243359924128747`, 
+            5.001415504514951}]}, {{{0.5, -0.8660254037844386}, {
+           0.8660254037844386, 0.5}}, {
+           4.714101615137754, -0.16506350946109638`}}]}, {{{0.2, 0.}, {0., 
+         0.2}}, Center}], {-1.6, 2.9}], 
+      GeometricTransformationBox[
+       GeometricTransformationBox[{GeometricTransformationBox[
+          {GrayLevel[1], DiskBox[{2.5, 4}, {3.5, 1.9}]}, {{{
+           0.5, -0.8660254037844386}, {0.8660254037844386, 0.5}}, Center}], 
+         GeometricTransformationBox[
+          {RGBColor[0, 0, 1], 
+           DiskBox[{2.5, 4}, {3.3, 1.7}, {-1.2817698026646356`, 
+            0.2827433388230814}]}, {{{0.5, -0.8660254037844386}, {
+           0.8660254037844386, 0.5}}, {
+           4.714101615137754, -0.16506350946109638`}}], 
+         GeometricTransformationBox[
+          {RGBColor[1, 0, 0], 
+           DiskBox[{2.5, 4}, {3.3, 1.7}, {0.2827433388230814, 
+            1.8598228509251575`}]}, {{{0.5, -0.8660254037844386}, {
+           0.8660254037844386, 0.5}}, {
+           4.714101615137754, -0.16506350946109638`}}], 
+         GeometricTransformationBox[
+          {RGBColor[1, 1, 0], 
+           DiskBox[{2.5, 4}, {3.3, 1.7}, {1.8598228509251575`, 
+            3.4243359924128747`}]}, {{{0.5, -0.8660254037844386}, {
+           0.8660254037844386, 0.5}}, {
+           4.714101615137754, -0.16506350946109638`}}], 
+         GeometricTransformationBox[
+          {RGBColor[0, 1, 0], 
+           DiskBox[{2.5, 4}, {3.3, 1.7}, {3.4243359924128747`, 
+            5.001415504514951}]}, {{{0.5, -0.8660254037844386}, {
+           0.8660254037844386, 0.5}}, {
+           4.714101615137754, -0.16506350946109638`}}]}, {{{0.2, 0.}, {0., 
+         0.2}}, Center}], {1.6, -2.9}], {GeometricTransformationBox[
+        {GrayLevel[1], DiskBox[{2.5, 4}, {3.5, 1.9}]}, {{{
+         0.5, -0.8660254037844386}, {0.8660254037844386, 0.5}}, Center}], 
+       GeometricTransformationBox[
+        {RGBColor[0, 0, 1], 
+         DiskBox[{2.5, 4}, {3.3, 1.7}, {-1.2817698026646356`, 
+          0.2827433388230814}]}, {{{0.5, -0.8660254037844386}, {
+         0.8660254037844386, 0.5}}, {
+         4.714101615137754, -0.16506350946109638`}}], 
+       GeometricTransformationBox[
+        {RGBColor[1, 0, 0], 
+         DiskBox[{2.5, 4}, {3.3, 1.7}, {0.2827433388230814, 
+          1.8598228509251575`}]}, {{{0.5, -0.8660254037844386}, {
+         0.8660254037844386, 0.5}}, {
+         4.714101615137754, -0.16506350946109638`}}], 
+       GeometricTransformationBox[
+        {RGBColor[1, 1, 0], 
+         DiskBox[{2.5, 4}, {3.3, 1.7}, {1.8598228509251575`, 
+          3.4243359924128747`}]}, {{{0.5, -0.8660254037844386}, {
+         0.8660254037844386, 0.5}}, {
+         4.714101615137754, -0.16506350946109638`}}], 
+       GeometricTransformationBox[
+        {RGBColor[0, 1, 0], 
+         DiskBox[{2.5, 4}, {3.3, 1.7}, {3.4243359924128747`, 
+          5.001415504514951}]}, {{{0.5, -0.8660254037844386}, {
+         0.8660254037844386, 0.5}}, {
+         4.714101615137754, -0.16506350946109638`}}]}}, {0, -9}], 
+    GeometricTransformationBox[
+     {EdgeForm[{RGBColor[0, 1, 0], Thickness[0.005]}], FaceForm[{GrayLevel[0],
+       Opacity[0]}], RectangleBox[{-0.1, -0.1}, {5.1, 8.1},
+       RoundingRadius->0.5]}, {0, -9}]}, {GeometricTransformationBox[{
+      {FaceForm[RGBColor[0, 1, 0]], RectangleBox[{0.3, 0.3}, {4.7, 7.7},
+        RoundingRadius->0.2]}, 
+      {GrayLevel[1], 
+       GeometricTransformationBox[
+        DiskBox[{2.5, 4}, {3.5, 1.9}], {{{0.5, -0.8660254037844386}, {
+         0.8660254037844386, 0.5}}, Center}]}, 
+      {EdgeForm[{GrayLevel[0], Thickness[Tiny]}], FaceForm[{GrayLevel[0], 
+       Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+        RoundingRadius->0.4]}, InsetBox[
+       StyleBox["3",
+        StripOnInput->False,
+        LineColor->GrayLevel[1],
+        FrontFaceColor->GrayLevel[1],
+        BackFaceColor->GrayLevel[1],
+        GraphicsColor->GrayLevel[1],
+        FontSize->20,
+        FontWeight->Bold,
+        FontSlant->Italic,
+        FontColor->GrayLevel[1]], {0.7, 7.2}], InsetBox[
+       StyleBox["3",
+        StripOnInput->False,
+        LineColor->GrayLevel[1],
+        FrontFaceColor->GrayLevel[1],
+        BackFaceColor->GrayLevel[1],
+        GraphicsColor->GrayLevel[1],
+        FontSize->20,
+        FontWeight->Bold,
+        FontSlant->Italic,
+        FontColor->GrayLevel[1]], {4.3, 0.8}], InsetBox[
+       StyleBox["3",
+        StripOnInput->False,
+        LineColor->RGBColor[0, 1, 0],
+        FrontFaceColor->RGBColor[0, 1, 0],
+        BackFaceColor->RGBColor[0, 1, 0],
+        GraphicsColor->RGBColor[0, 1, 0],
+        FontSize->80,
+        FontWeight->Bold,
+        FontSlant->Italic,
+        FontColor->RGBColor[0, 1, 0]], {2.3, 4}]}, {6, -9}], 
+    GeometricTransformationBox[
+     {EdgeForm[{RGBColor[0, 1, 0], Thickness[0.005]}], FaceForm[{GrayLevel[0],
+       Opacity[0]}], RectangleBox[{-0.1, -0.1}, {5.1, 8.1},
+       RoundingRadius->0.5]}, {6, -9}]}, {GeometricTransformationBox[{
+      {FaceForm[RGBColor[0, 0, 1]], RectangleBox[{0.3, 0.3}, {4.7, 7.7},
+        RoundingRadius->0.2]}, 
+      {GrayLevel[1], 
+       GeometricTransformationBox[
+        DiskBox[{2.5, 4}, {3.5, 1.9}], {{{0.5, -0.8660254037844386}, {
+         0.8660254037844386, 0.5}}, Center}]}, 
+      {EdgeForm[{GrayLevel[0], Thickness[Tiny]}], FaceForm[{GrayLevel[0], 
+       Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+        RoundingRadius->0.4]}, 
+      GeometricTransformationBox[GeometricTransformationBox[{
+         {GrayLevel[1], 
+          
+          InterpretationBox[
+           FilledCurveBox[{{
+             BSplineCurve[{{0., -1.5}, {1.5, -1.5}, {1.5, 1.5}, {0., 
+               1.5}, {-1.5, 1.5}, {-1.5, -1.5}, {0., -1.5}}, 
+               SplineKnots -> {
+                0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                 Rational[3, 4], 1, 1, 1}, 
+               SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}, {
+             BSplineCurve[{{0., -1.1}, {1.1, -1.1}, {1.1, 1.1}, {0., 
+               1.1}, {-1.1, 1.1}, {-1.1, -1.1}, {0., -1.1}}, 
+               SplineKnots -> {
+                0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                 Rational[3, 4], 1, 1, 1}, 
+               SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}}],
+           Annulus[{0, 0}, {1.1, 1.5}]]}, 
+         {GrayLevel[1], 
+          PolygonBox[{{-1, -1}, {-0.6, -1.2}, {1, 1}, {0.6, 1.2}}]}}, {{{0.25,
+          0.}, {0., 0.25}}, Center}], {0.8, 7.2}], 
+      GeometricTransformationBox[GeometricTransformationBox[{
+         {GrayLevel[1], 
+          
+          InterpretationBox[
+           FilledCurveBox[{{
+             BSplineCurve[{{0., -1.5}, {1.5, -1.5}, {1.5, 1.5}, {0., 
+               1.5}, {-1.5, 1.5}, {-1.5, -1.5}, {0., -1.5}}, 
+               SplineKnots -> {
+                0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                 Rational[3, 4], 1, 1, 1}, 
+               SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}, {
+             BSplineCurve[{{0., -1.1}, {1.1, -1.1}, {1.1, 1.1}, {0., 
+               1.1}, {-1.1, 1.1}, {-1.1, -1.1}, {0., -1.1}}, 
+               SplineKnots -> {
+                0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                 Rational[3, 4], 1, 1, 1}, 
+               SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}}],
+           Annulus[{0, 0}, {1.1, 1.5}]]}, 
+         {GrayLevel[1], 
+          PolygonBox[{{-1, -1}, {-0.6, -1.2}, {1, 1}, {0.6, 1.2}}]}}, {{{0.25,
+          0.}, {0., 0.25}}, Center}], {4.2, 0.8}], 
+      GeometricTransformationBox[GeometricTransformationBox[{
+         {RGBColor[0, 0, 1], 
+          
+          InterpretationBox[
+           FilledCurveBox[{{
+             BSplineCurve[{{0., -1.5}, {1.5, -1.5}, {1.5, 1.5}, {0., 
+               1.5}, {-1.5, 1.5}, {-1.5, -1.5}, {0., -1.5}}, 
+               SplineKnots -> {
+                0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                 Rational[3, 4], 1, 1, 1}, 
+               SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}, {
+             BSplineCurve[{{0., -1.1}, {1.1, -1.1}, {1.1, 1.1}, {0., 
+               1.1}, {-1.1, 1.1}, {-1.1, -1.1}, {0., -1.1}}, 
+               SplineKnots -> {
+                0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                 Rational[3, 4], 1, 1, 1}, 
+               SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}}],
+           Annulus[{0, 0}, {1.1, 1.5}]]}, 
+         {RGBColor[0, 0, 1], 
+          PolygonBox[{{-1, -1}, {-0.6, -1.2}, {1, 1}, {0.6, 1.2}}]}}, {{{0.9, 
+         0.}, {0., 0.9}}, Center}], {2.5, 4}]}, {12, -9}], 
+    GeometricTransformationBox[
+     {EdgeForm[{RGBColor[0, 1, 0], Thickness[0.005]}], FaceForm[{GrayLevel[0],
+       Opacity[0]}], RectangleBox[{-0.1, -0.1}, {5.1, 8.1},
+       RoundingRadius->0.5]}, {12, -9}]}, {GeometricTransformationBox[{
+      {FaceForm[RGBColor[1, 0, 0]], RectangleBox[{0.3, 0.3}, {4.7, 7.7},
+        RoundingRadius->0.2]}, 
+      {GrayLevel[1], 
+       GeometricTransformationBox[
+        DiskBox[{2.5, 4}, {3.5, 1.9}], {{{0.5, -0.8660254037844386}, {
+         0.8660254037844386, 0.5}}, Center}]}, 
+      {EdgeForm[{GrayLevel[0], Thickness[Tiny]}], FaceForm[{GrayLevel[0], 
+       Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+        RoundingRadius->0.4]}, 
+      GeometricTransformationBox[
+       GeometricTransformationBox[{GeometricTransformationBox[{
+           {FaceForm[GrayLevel[1]], 
+            DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+           {FaceForm[GrayLevel[1]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+           {FaceForm[GrayLevel[1]], 
+            TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+             "Triangle"]}}, {{{0.7071067811865475, -0.7071067811865475}, {
+           0.7071067811865475, 0.7071067811865475}}, Center}], 
+         GeometricTransformationBox[
+          GeometricTransformationBox[GeometricTransformationBox[{
+             {FaceForm[GrayLevel[1]], 
+              DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+             {FaceForm[GrayLevel[1]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+             {FaceForm[GrayLevel[1]], 
+              TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+               "Triangle"]}}, {{{-1, 0}, {0, -1}}, Center}], {0, -1.9}], {{{
+           0.7071067811865475, -0.7071067811865475}, {0.7071067811865475, 
+           0.7071067811865475}}, Center}]}, {{{0.25, 0.}, {0., 0.25}}, 
+         Center}], {0.3, 7.5}], 
+      GeometricTransformationBox[
+       GeometricTransformationBox[{GeometricTransformationBox[{
+           {FaceForm[GrayLevel[1]], 
+            DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+           {FaceForm[GrayLevel[1]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+           {FaceForm[GrayLevel[1]], 
+            TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+             "Triangle"]}}, {{{0.7071067811865475, -0.7071067811865475}, {
+           0.7071067811865475, 0.7071067811865475}}, Center}], 
+         GeometricTransformationBox[
+          GeometricTransformationBox[GeometricTransformationBox[{
+             {FaceForm[GrayLevel[1]], 
+              DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+             {FaceForm[GrayLevel[1]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+             {FaceForm[GrayLevel[1]], 
+              TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+               "Triangle"]}}, {{{-1, 0}, {0, -1}}, Center}], {0, -1.9}], {{{
+           0.7071067811865475, -0.7071067811865475}, {0.7071067811865475, 
+           0.7071067811865475}}, Center}]}, {{{0.25, 0.}, {0., 0.25}}, 
+         Center}], {3.8, 1.4}], 
+      GeometricTransformationBox[
+       GeometricTransformationBox[{GeometricTransformationBox[{
+           {FaceForm[RGBColor[1, 0, 0]], 
+            DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+           {FaceForm[RGBColor[1, 0, 0]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+           {FaceForm[RGBColor[1, 0, 0]], 
+            TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+             "Triangle"]}}, {{{0.7071067811865475, -0.7071067811865475}, {
+           0.7071067811865475, 0.7071067811865475}}, Center}], 
+         GeometricTransformationBox[
+          GeometricTransformationBox[GeometricTransformationBox[{
+             {FaceForm[RGBColor[1, 0, 0]], 
+              DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+             {FaceForm[RGBColor[1, 0, 0]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+             {FaceForm[RGBColor[1, 0, 0]], 
+              TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+               "Triangle"]}}, {{{-1, 0}, {0, -1}}, Center}], {0, -1.9}], {{{
+           0.7071067811865475, -0.7071067811865475}, {0.7071067811865475, 
+           0.7071067811865475}}, Center}]}, {{{0.9, 0.}, {0., 0.9}}, 
+         Center}], {2, 4.5}]}, {18, -9}], GeometricTransformationBox[
+     {EdgeForm[{RGBColor[0, 1, 0], Thickness[0.005]}], FaceForm[{GrayLevel[0],
+       Opacity[0]}], RectangleBox[{-0.1, -0.1}, {5.1, 8.1},
+       RoundingRadius->0.5]}, {18, -9}]}, {GeometricTransformationBox[{
+      {FaceForm[GrayLevel[0]], RectangleBox[{0.3, 0.3}, {4.7, 7.7},
+        RoundingRadius->0.2]}, 
+      {GrayLevel[1], 
+       GeometricTransformationBox[
+        DiskBox[{2.5, 4}, {3.5, 1.9}], {{{0.5, -0.8660254037844386}, {
+         0.8660254037844386, 0.5}}, Center}]}, 
+      {EdgeForm[{GrayLevel[0], Thickness[Tiny]}], FaceForm[{GrayLevel[0], 
+       Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+        RoundingRadius->0.4]}, 
+      GeometricTransformationBox[
+       GeometricTransformationBox[{GeometricTransformationBox[
+          {GrayLevel[1], DiskBox[{2.5, 4}, {3.5, 1.9}]}, {{{
+           0.5, -0.8660254037844386}, {0.8660254037844386, 0.5}}, Center}], 
+         GeometricTransformationBox[
+          {RGBColor[0, 0, 1], 
+           DiskBox[{2.5, 4}, {3.3, 1.7}, {-1.2817698026646356`, 
+            0.2827433388230814}]}, {{{0.5, -0.8660254037844386}, {
+           0.8660254037844386, 0.5}}, {
+           4.714101615137754, -0.16506350946109638`}}], 
+         GeometricTransformationBox[
+          {RGBColor[1, 0, 0], 
+           DiskBox[{2.5, 4}, {3.3, 1.7}, {0.2827433388230814, 
+            1.8598228509251575`}]}, {{{0.5, -0.8660254037844386}, {
+           0.8660254037844386, 0.5}}, {
+           4.714101615137754, -0.16506350946109638`}}], 
+         GeometricTransformationBox[
+          {RGBColor[1, 1, 0], 
+           DiskBox[{2.5, 4}, {3.3, 1.7}, {1.8598228509251575`, 
+            3.4243359924128747`}]}, {{{0.5, -0.8660254037844386}, {
+           0.8660254037844386, 0.5}}, {
+           4.714101615137754, -0.16506350946109638`}}], 
+         GeometricTransformationBox[
+          {RGBColor[0, 1, 0], 
+           DiskBox[{2.5, 4}, {3.3, 1.7}, {3.4243359924128747`, 
+            5.001415504514951}]}, {{{0.5, -0.8660254037844386}, {
+           0.8660254037844386, 0.5}}, {
+           4.714101615137754, -0.16506350946109638`}}]}, {{{0.2, 0.}, {0., 
+         0.2}}, Center}], {-1.6, 2.9}], 
+      GeometricTransformationBox[
+       GeometricTransformationBox[{GeometricTransformationBox[
+          {GrayLevel[1], DiskBox[{2.5, 4}, {3.5, 1.9}]}, {{{
+           0.5, -0.8660254037844386}, {0.8660254037844386, 0.5}}, Center}], 
+         GeometricTransformationBox[
+          {RGBColor[0, 0, 1], 
+           DiskBox[{2.5, 4}, {3.3, 1.7}, {-1.2817698026646356`, 
+            0.2827433388230814}]}, {{{0.5, -0.8660254037844386}, {
+           0.8660254037844386, 0.5}}, {
+           4.714101615137754, -0.16506350946109638`}}], 
+         GeometricTransformationBox[
+          {RGBColor[1, 0, 0], 
+           DiskBox[{2.5, 4}, {3.3, 1.7}, {0.2827433388230814, 
+            1.8598228509251575`}]}, {{{0.5, -0.8660254037844386}, {
+           0.8660254037844386, 0.5}}, {
+           4.714101615137754, -0.16506350946109638`}}], 
+         GeometricTransformationBox[
+          {RGBColor[1, 1, 0], 
+           DiskBox[{2.5, 4}, {3.3, 1.7}, {1.8598228509251575`, 
+            3.4243359924128747`}]}, {{{0.5, -0.8660254037844386}, {
+           0.8660254037844386, 0.5}}, {
+           4.714101615137754, -0.16506350946109638`}}], 
+         GeometricTransformationBox[
+          {RGBColor[0, 1, 0], 
+           DiskBox[{2.5, 4}, {3.3, 1.7}, {3.4243359924128747`, 
+            5.001415504514951}]}, {{{0.5, -0.8660254037844386}, {
+           0.8660254037844386, 0.5}}, {
+           4.714101615137754, -0.16506350946109638`}}]}, {{{0.2, 0.}, {0., 
+         0.2}}, Center}], {1.6, -2.9}], {GeometricTransformationBox[
+        {GrayLevel[1], DiskBox[{2.5, 4}, {3.5, 1.9}]}, {{{
+         0.5, -0.8660254037844386}, {0.8660254037844386, 0.5}}, Center}], 
+       GeometricTransformationBox[
+        {RGBColor[0, 0, 1], 
+         DiskBox[{2.5, 4}, {3.3, 1.7}, {-1.2817698026646356`, 
+          0.2827433388230814}]}, {{{0.5, -0.8660254037844386}, {
+         0.8660254037844386, 0.5}}, {
+         4.714101615137754, -0.16506350946109638`}}], 
+       GeometricTransformationBox[
+        {RGBColor[1, 0, 0], 
+         DiskBox[{2.5, 4}, {3.3, 1.7}, {0.2827433388230814, 
+          1.8598228509251575`}]}, {{{0.5, -0.8660254037844386}, {
+         0.8660254037844386, 0.5}}, {
+         4.714101615137754, -0.16506350946109638`}}], 
+       GeometricTransformationBox[
+        {RGBColor[1, 1, 0], 
+         DiskBox[{2.5, 4}, {3.3, 1.7}, {1.8598228509251575`, 
+          3.4243359924128747`}]}, {{{0.5, -0.8660254037844386}, {
+         0.8660254037844386, 0.5}}, {
+         4.714101615137754, -0.16506350946109638`}}], 
+       GeometricTransformationBox[
+        {RGBColor[0, 1, 0], 
+         DiskBox[{2.5, 4}, {3.3, 1.7}, {3.4243359924128747`, 
+          5.001415504514951}]}, {{{0.5, -0.8660254037844386}, {
+         0.8660254037844386, 0.5}}, {
+         4.714101615137754, -0.16506350946109638`}}]}}, {24, -9}], 
+    GeometricTransformationBox[
+     {EdgeForm[{RGBColor[0, 1, 0], Thickness[0.005]}], FaceForm[{GrayLevel[0],
+       Opacity[0]}], RectangleBox[{-0.1, -0.1}, {5.1, 8.1},
+       RoundingRadius->0.5]}, {24, -9}]}, {GeometricTransformationBox[{
+      {FaceForm[RGBColor[0, 1, 0]], RectangleBox[{0.3, 0.3}, {4.7, 7.7},
+        RoundingRadius->0.2]}, 
+      {GrayLevel[1], 
+       GeometricTransformationBox[
+        DiskBox[{2.5, 4}, {3.5, 1.9}], {{{0.5, -0.8660254037844386}, {
+         0.8660254037844386, 0.5}}, Center}]}, 
+      {EdgeForm[{GrayLevel[0], Thickness[Tiny]}], FaceForm[{GrayLevel[0], 
+       Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+        RoundingRadius->0.4]}, InsetBox[
+       StyleBox["3",
+        StripOnInput->False,
+        LineColor->GrayLevel[1],
+        FrontFaceColor->GrayLevel[1],
+        BackFaceColor->GrayLevel[1],
+        GraphicsColor->GrayLevel[1],
+        FontSize->20,
+        FontWeight->Bold,
+        FontSlant->Italic,
+        FontColor->GrayLevel[1]], {0.7, 7.2}], InsetBox[
+       StyleBox["3",
+        StripOnInput->False,
+        LineColor->GrayLevel[1],
+        FrontFaceColor->GrayLevel[1],
+        BackFaceColor->GrayLevel[1],
+        GraphicsColor->GrayLevel[1],
+        FontSize->20,
+        FontWeight->Bold,
+        FontSlant->Italic,
+        FontColor->GrayLevel[1]], {4.3, 0.8}], InsetBox[
+       StyleBox["3",
+        StripOnInput->False,
+        LineColor->RGBColor[0, 1, 0],
+        FrontFaceColor->RGBColor[0, 1, 0],
+        BackFaceColor->RGBColor[0, 1, 0],
+        GraphicsColor->RGBColor[0, 1, 0],
+        FontSize->80,
+        FontWeight->Bold,
+        FontSlant->Italic,
+        FontColor->RGBColor[0, 1, 0]], {2.3, 4}]}, {30, -9}], 
+    GeometricTransformationBox[
+     {EdgeForm[{RGBColor[0, 1, 0], Thickness[0.005]}], FaceForm[{GrayLevel[0],
+       Opacity[0]}], RectangleBox[{-0.1, -0.1}, {5.1, 8.1},
+       RoundingRadius->0.5]}, {30, -9}]}, {GeometricTransformationBox[{
+      {FaceForm[RGBColor[0, 0, 1]], RectangleBox[{0.3, 0.3}, {4.7, 7.7},
+        RoundingRadius->0.2]}, 
+      {GrayLevel[1], 
+       GeometricTransformationBox[
+        DiskBox[{2.5, 4}, {3.5, 1.9}], {{{0.5, -0.8660254037844386}, {
+         0.8660254037844386, 0.5}}, Center}]}, 
+      {EdgeForm[{GrayLevel[0], Thickness[Tiny]}], FaceForm[{GrayLevel[0], 
+       Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+        RoundingRadius->0.4]}, 
+      GeometricTransformationBox[GeometricTransformationBox[{
+         {GrayLevel[1], 
+          
+          InterpretationBox[
+           FilledCurveBox[{{
+             BSplineCurve[{{0., -1.5}, {1.5, -1.5}, {1.5, 1.5}, {0., 
+               1.5}, {-1.5, 1.5}, {-1.5, -1.5}, {0., -1.5}}, 
+               SplineKnots -> {
+                0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                 Rational[3, 4], 1, 1, 1}, 
+               SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}, {
+             BSplineCurve[{{0., -1.1}, {1.1, -1.1}, {1.1, 1.1}, {0., 
+               1.1}, {-1.1, 1.1}, {-1.1, -1.1}, {0., -1.1}}, 
+               SplineKnots -> {
+                0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                 Rational[3, 4], 1, 1, 1}, 
+               SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}}],
+           Annulus[{0, 0}, {1.1, 1.5}]]}, 
+         {GrayLevel[1], 
+          PolygonBox[{{-1, -1}, {-0.6, -1.2}, {1, 1}, {0.6, 1.2}}]}}, {{{0.25,
+          0.}, {0., 0.25}}, Center}], {0.8, 7.2}], 
+      GeometricTransformationBox[GeometricTransformationBox[{
+         {GrayLevel[1], 
+          
+          InterpretationBox[
+           FilledCurveBox[{{
+             BSplineCurve[{{0., -1.5}, {1.5, -1.5}, {1.5, 1.5}, {0., 
+               1.5}, {-1.5, 1.5}, {-1.5, -1.5}, {0., -1.5}}, 
+               SplineKnots -> {
+                0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                 Rational[3, 4], 1, 1, 1}, 
+               SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}, {
+             BSplineCurve[{{0., -1.1}, {1.1, -1.1}, {1.1, 1.1}, {0., 
+               1.1}, {-1.1, 1.1}, {-1.1, -1.1}, {0., -1.1}}, 
+               SplineKnots -> {
+                0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                 Rational[3, 4], 1, 1, 1}, 
+               SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}}],
+           Annulus[{0, 0}, {1.1, 1.5}]]}, 
+         {GrayLevel[1], 
+          PolygonBox[{{-1, -1}, {-0.6, -1.2}, {1, 1}, {0.6, 1.2}}]}}, {{{0.25,
+          0.}, {0., 0.25}}, Center}], {4.2, 0.8}], 
+      GeometricTransformationBox[GeometricTransformationBox[{
+         {RGBColor[0, 0, 1], 
+          
+          InterpretationBox[
+           FilledCurveBox[{{
+             BSplineCurve[{{0., -1.5}, {1.5, -1.5}, {1.5, 1.5}, {0., 
+               1.5}, {-1.5, 1.5}, {-1.5, -1.5}, {0., -1.5}}, 
+               SplineKnots -> {
+                0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                 Rational[3, 4], 1, 1, 1}, 
+               SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}, {
+             BSplineCurve[{{0., -1.1}, {1.1, -1.1}, {1.1, 1.1}, {0., 
+               1.1}, {-1.1, 1.1}, {-1.1, -1.1}, {0., -1.1}}, 
+               SplineKnots -> {
+                0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                 Rational[3, 4], 1, 1, 1}, 
+               SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}}],
+           Annulus[{0, 0}, {1.1, 1.5}]]}, 
+         {RGBColor[0, 0, 1], 
+          PolygonBox[{{-1, -1}, {-0.6, -1.2}, {1, 1}, {0.6, 1.2}}]}}, {{{0.9, 
+         0.}, {0., 0.9}}, Center}], {2.5, 4}]}, {36, -9}], 
+    GeometricTransformationBox[
+     {EdgeForm[{RGBColor[0, 1, 0], Thickness[0.005]}], FaceForm[{GrayLevel[0],
+       Opacity[0]}], RectangleBox[{-0.1, -0.1}, {5.1, 8.1},
+       RoundingRadius->0.5]}, {36, -9}]}, {GeometricTransformationBox[{
+      {FaceForm[RGBColor[1, 0, 0]], RectangleBox[{0.3, 0.3}, {4.7, 7.7},
+        RoundingRadius->0.2]}, 
+      {GrayLevel[1], 
+       GeometricTransformationBox[
+        DiskBox[{2.5, 4}, {3.5, 1.9}], {{{0.5, -0.8660254037844386}, {
+         0.8660254037844386, 0.5}}, Center}]}, 
+      {EdgeForm[{GrayLevel[0], Thickness[Tiny]}], FaceForm[{GrayLevel[0], 
+       Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+        RoundingRadius->0.4]}, 
+      GeometricTransformationBox[
+       GeometricTransformationBox[{GeometricTransformationBox[{
+           {FaceForm[GrayLevel[1]], 
+            DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+           {FaceForm[GrayLevel[1]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+           {FaceForm[GrayLevel[1]], 
+            TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+             "Triangle"]}}, {{{0.7071067811865475, -0.7071067811865475}, {
+           0.7071067811865475, 0.7071067811865475}}, Center}], 
+         GeometricTransformationBox[
+          GeometricTransformationBox[GeometricTransformationBox[{
+             {FaceForm[GrayLevel[1]], 
+              DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+             {FaceForm[GrayLevel[1]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+             {FaceForm[GrayLevel[1]], 
+              TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+               "Triangle"]}}, {{{-1, 0}, {0, -1}}, Center}], {0, -1.9}], {{{
+           0.7071067811865475, -0.7071067811865475}, {0.7071067811865475, 
+           0.7071067811865475}}, Center}]}, {{{0.25, 0.}, {0., 0.25}}, 
+         Center}], {0.3, 7.5}], 
+      GeometricTransformationBox[
+       GeometricTransformationBox[{GeometricTransformationBox[{
+           {FaceForm[GrayLevel[1]], 
+            DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+           {FaceForm[GrayLevel[1]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+           {FaceForm[GrayLevel[1]], 
+            TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+             "Triangle"]}}, {{{0.7071067811865475, -0.7071067811865475}, {
+           0.7071067811865475, 0.7071067811865475}}, Center}], 
+         GeometricTransformationBox[
+          GeometricTransformationBox[GeometricTransformationBox[{
+             {FaceForm[GrayLevel[1]], 
+              DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+             {FaceForm[GrayLevel[1]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+             {FaceForm[GrayLevel[1]], 
+              TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+               "Triangle"]}}, {{{-1, 0}, {0, -1}}, Center}], {0, -1.9}], {{{
+           0.7071067811865475, -0.7071067811865475}, {0.7071067811865475, 
+           0.7071067811865475}}, Center}]}, {{{0.25, 0.}, {0., 0.25}}, 
+         Center}], {3.8, 1.4}], 
+      GeometricTransformationBox[
+       GeometricTransformationBox[{GeometricTransformationBox[{
+           {FaceForm[RGBColor[1, 0, 0]], 
+            DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+           {FaceForm[RGBColor[1, 0, 0]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+           {FaceForm[RGBColor[1, 0, 0]], 
+            TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+             "Triangle"]}}, {{{0.7071067811865475, -0.7071067811865475}, {
+           0.7071067811865475, 0.7071067811865475}}, Center}], 
+         GeometricTransformationBox[
+          GeometricTransformationBox[GeometricTransformationBox[{
+             {FaceForm[RGBColor[1, 0, 0]], 
+              DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+             {FaceForm[RGBColor[1, 0, 0]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+             {FaceForm[RGBColor[1, 0, 0]], 
+              TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+               "Triangle"]}}, {{{-1, 0}, {0, -1}}, Center}], {0, -1.9}], {{{
+           0.7071067811865475, -0.7071067811865475}, {0.7071067811865475, 
+           0.7071067811865475}}, Center}]}, {{{0.9, 0.}, {0., 0.9}}, 
+         Center}], {2, 4.5}]}, {0, -18}], GeometricTransformationBox[
+     {EdgeForm[{RGBColor[0, 1, 0], Thickness[0.005]}], FaceForm[{GrayLevel[0],
+       Opacity[0]}], RectangleBox[{-0.1, -0.1}, {5.1, 8.1},
+       RoundingRadius->0.5]}, {0, -18}]}, {GeometricTransformationBox[{
+      {FaceForm[GrayLevel[0]], RectangleBox[{0.3, 0.3}, {4.7, 7.7},
+        RoundingRadius->0.2]}, 
+      {GrayLevel[1], 
+       GeometricTransformationBox[
+        DiskBox[{2.5, 4}, {3.5, 1.9}], {{{0.5, -0.8660254037844386}, {
+         0.8660254037844386, 0.5}}, Center}]}, 
+      {EdgeForm[{GrayLevel[0], Thickness[Tiny]}], FaceForm[{GrayLevel[0], 
+       Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+        RoundingRadius->0.4]}, 
+      GeometricTransformationBox[
+       GeometricTransformationBox[{GeometricTransformationBox[
+          {GrayLevel[1], DiskBox[{2.5, 4}, {3.5, 1.9}]}, {{{
+           0.5, -0.8660254037844386}, {0.8660254037844386, 0.5}}, Center}], 
+         GeometricTransformationBox[
+          {RGBColor[0, 0, 1], 
+           DiskBox[{2.5, 4}, {3.3, 1.7}, {-1.2817698026646356`, 
+            0.2827433388230814}]}, {{{0.5, -0.8660254037844386}, {
+           0.8660254037844386, 0.5}}, {
+           4.714101615137754, -0.16506350946109638`}}], 
+         GeometricTransformationBox[
+          {RGBColor[1, 0, 0], 
+           DiskBox[{2.5, 4}, {3.3, 1.7}, {0.2827433388230814, 
+            1.8598228509251575`}]}, {{{0.5, -0.8660254037844386}, {
+           0.8660254037844386, 0.5}}, {
+           4.714101615137754, -0.16506350946109638`}}], 
+         GeometricTransformationBox[
+          {RGBColor[1, 1, 0], 
+           DiskBox[{2.5, 4}, {3.3, 1.7}, {1.8598228509251575`, 
+            3.4243359924128747`}]}, {{{0.5, -0.8660254037844386}, {
+           0.8660254037844386, 0.5}}, {
+           4.714101615137754, -0.16506350946109638`}}], 
+         GeometricTransformationBox[
+          {RGBColor[0, 1, 0], 
+           DiskBox[{2.5, 4}, {3.3, 1.7}, {3.4243359924128747`, 
+            5.001415504514951}]}, {{{0.5, -0.8660254037844386}, {
+           0.8660254037844386, 0.5}}, {
+           4.714101615137754, -0.16506350946109638`}}]}, {{{0.2, 0.}, {0., 
+         0.2}}, Center}], {-1.6, 2.9}], 
+      GeometricTransformationBox[
+       GeometricTransformationBox[{GeometricTransformationBox[
+          {GrayLevel[1], DiskBox[{2.5, 4}, {3.5, 1.9}]}, {{{
+           0.5, -0.8660254037844386}, {0.8660254037844386, 0.5}}, Center}], 
+         GeometricTransformationBox[
+          {RGBColor[0, 0, 1], 
+           DiskBox[{2.5, 4}, {3.3, 1.7}, {-1.2817698026646356`, 
+            0.2827433388230814}]}, {{{0.5, -0.8660254037844386}, {
+           0.8660254037844386, 0.5}}, {
+           4.714101615137754, -0.16506350946109638`}}], 
+         GeometricTransformationBox[
+          {RGBColor[1, 0, 0], 
+           DiskBox[{2.5, 4}, {3.3, 1.7}, {0.2827433388230814, 
+            1.8598228509251575`}]}, {{{0.5, -0.8660254037844386}, {
+           0.8660254037844386, 0.5}}, {
+           4.714101615137754, -0.16506350946109638`}}], 
+         GeometricTransformationBox[
+          {RGBColor[1, 1, 0], 
+           DiskBox[{2.5, 4}, {3.3, 1.7}, {1.8598228509251575`, 
+            3.4243359924128747`}]}, {{{0.5, -0.8660254037844386}, {
+           0.8660254037844386, 0.5}}, {
+           4.714101615137754, -0.16506350946109638`}}], 
+         GeometricTransformationBox[
+          {RGBColor[0, 1, 0], 
+           DiskBox[{2.5, 4}, {3.3, 1.7}, {3.4243359924128747`, 
+            5.001415504514951}]}, {{{0.5, -0.8660254037844386}, {
+           0.8660254037844386, 0.5}}, {
+           4.714101615137754, -0.16506350946109638`}}]}, {{{0.2, 0.}, {0., 
+         0.2}}, Center}], {1.6, -2.9}], {GeometricTransformationBox[
+        {GrayLevel[1], DiskBox[{2.5, 4}, {3.5, 1.9}]}, {{{
+         0.5, -0.8660254037844386}, {0.8660254037844386, 0.5}}, Center}], 
+       GeometricTransformationBox[
+        {RGBColor[0, 0, 1], 
+         DiskBox[{2.5, 4}, {3.3, 1.7}, {-1.2817698026646356`, 
+          0.2827433388230814}]}, {{{0.5, -0.8660254037844386}, {
+         0.8660254037844386, 0.5}}, {
+         4.714101615137754, -0.16506350946109638`}}], 
+       GeometricTransformationBox[
+        {RGBColor[1, 0, 0], 
+         DiskBox[{2.5, 4}, {3.3, 1.7}, {0.2827433388230814, 
+          1.8598228509251575`}]}, {{{0.5, -0.8660254037844386}, {
+         0.8660254037844386, 0.5}}, {
+         4.714101615137754, -0.16506350946109638`}}], 
+       GeometricTransformationBox[
+        {RGBColor[1, 1, 0], 
+         DiskBox[{2.5, 4}, {3.3, 1.7}, {1.8598228509251575`, 
+          3.4243359924128747`}]}, {{{0.5, -0.8660254037844386}, {
+         0.8660254037844386, 0.5}}, {
+         4.714101615137754, -0.16506350946109638`}}], 
+       GeometricTransformationBox[
+        {RGBColor[0, 1, 0], 
+         DiskBox[{2.5, 4}, {3.3, 1.7}, {3.4243359924128747`, 
+          5.001415504514951}]}, {{{0.5, -0.8660254037844386}, {
+         0.8660254037844386, 0.5}}, {
+         4.714101615137754, -0.16506350946109638`}}]}}, {6, -18}], 
+    GeometricTransformationBox[
+     {EdgeForm[{RGBColor[0, 1, 0], Thickness[0.005]}], FaceForm[{GrayLevel[0],
+       Opacity[0]}], RectangleBox[{-0.1, -0.1}, {5.1, 8.1},
+       RoundingRadius->0.5]}, {6, -18}]}},
+  ImageSize->Full]], "Output",
+ CellChangeTimes->{{3.8255502676968713`*^9, 3.8255503289753375`*^9}, {
+   3.8255506146062684`*^9, 3.825550618852602*^9}, {3.825550705929516*^9, 
+   3.825550737091712*^9}, {3.825551359070799*^9, 3.82555137456028*^9}, {
+   3.8255514120117793`*^9, 3.825551462677114*^9}, {3.825551493808296*^9, 
+   3.8255514993756433`*^9}, {3.825551603259085*^9, 3.825551618090536*^9}, 
+   3.8255850108128443`*^9, {3.8255850516640306`*^9, 3.8255850596942716`*^9}, {
+   3.8255854493228536`*^9, 3.8255854713308697`*^9}},
+ CellLabel->
+  "Out[515]=",ExpressionUUID->"6383a582-6bb2-4aa6-a3e8-f23040351093"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"unoCardGenerator", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"Green", ",", "2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Red", ",", "\"\<skip\>\""}], "}"}]}], "}"}], ",", 
+   "\"\<selected\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.8255857624904966`*^9, 3.8255858454278917`*^9}, {
+  3.8255859145969925`*^9, 3.8255859162938976`*^9}},
+ CellLabel->
+  "In[531]:=",ExpressionUUID->"ad94ddc5-0514-48d2-8203-d83657ba39ad"],
+
+Cell[BoxData[
+ GraphicsBox[{{GeometricTransformationBox[{
+      {FaceForm[RGBColor[0, 1, 0]], RectangleBox[{0.3, 0.3}, {4.7, 7.7},
+        RoundingRadius->0.2]}, 
+      {GrayLevel[1], 
+       GeometricTransformationBox[
+        DiskBox[{2.5, 4}, {3.5, 1.9}], {{{0.5, -0.8660254037844386}, {
+         0.8660254037844386, 0.5}}, Center}]}, 
+      {EdgeForm[{GrayLevel[0], Thickness[Tiny]}], FaceForm[{GrayLevel[0], 
+       Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+        RoundingRadius->0.4]}, InsetBox[
+       StyleBox["2",
+        StripOnInput->False,
+        LineColor->GrayLevel[1],
+        FrontFaceColor->GrayLevel[1],
+        BackFaceColor->GrayLevel[1],
+        GraphicsColor->GrayLevel[1],
+        FontSize->20,
+        FontWeight->Bold,
+        FontSlant->Italic,
+        FontColor->GrayLevel[1]], {0.7, 7.2}], InsetBox[
+       StyleBox["2",
+        StripOnInput->False,
+        LineColor->GrayLevel[1],
+        FrontFaceColor->GrayLevel[1],
+        BackFaceColor->GrayLevel[1],
+        GraphicsColor->GrayLevel[1],
+        FontSize->20,
+        FontWeight->Bold,
+        FontSlant->Italic,
+        FontColor->GrayLevel[1]], {4.3, 0.8}], InsetBox[
+       StyleBox["2",
+        StripOnInput->False,
+        LineColor->RGBColor[0, 1, 0],
+        FrontFaceColor->RGBColor[0, 1, 0],
+        BackFaceColor->RGBColor[0, 1, 0],
+        GraphicsColor->RGBColor[0, 1, 0],
+        FontSize->80,
+        FontWeight->Bold,
+        FontSlant->Italic,
+        FontColor->RGBColor[0, 1, 0]], {2.3, 4}]}, {0, 0}], 
+    GeometricTransformationBox[
+     {EdgeForm[{RGBColor[0, 1, 0], Thickness[0.005]}], FaceForm[{GrayLevel[0],
+       Opacity[0]}], RectangleBox[{-0.1, -0.1}, {5.1, 8.1},
+       RoundingRadius->0.5]}, {0, 0}]}, {GeometricTransformationBox[{
+      {FaceForm[RGBColor[1, 0, 0]], RectangleBox[{0.3, 0.3}, {4.7, 7.7},
+        RoundingRadius->0.2]}, 
+      {GrayLevel[1], 
+       GeometricTransformationBox[
+        DiskBox[{2.5, 4}, {3.5, 1.9}], {{{0.5, -0.8660254037844386}, {
+         0.8660254037844386, 0.5}}, Center}]}, 
+      {EdgeForm[{GrayLevel[0], Thickness[Tiny]}], FaceForm[{GrayLevel[0], 
+       Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+        RoundingRadius->0.4]}, 
+      GeometricTransformationBox[GeometricTransformationBox[{
+         {GrayLevel[1], 
+          
+          InterpretationBox[
+           FilledCurveBox[{{
+             BSplineCurve[{{0., -1.5}, {1.5, -1.5}, {1.5, 1.5}, {0., 
+               1.5}, {-1.5, 1.5}, {-1.5, -1.5}, {0., -1.5}}, 
+               SplineKnots -> {
+                0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                 Rational[3, 4], 1, 1, 1}, 
+               SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}, {
+             BSplineCurve[{{0., -1.1}, {1.1, -1.1}, {1.1, 1.1}, {0., 
+               1.1}, {-1.1, 1.1}, {-1.1, -1.1}, {0., -1.1}}, 
+               SplineKnots -> {
+                0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                 Rational[3, 4], 1, 1, 1}, 
+               SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}}],
+           Annulus[{0, 0}, {1.1, 1.5}]]}, 
+         {GrayLevel[1], 
+          PolygonBox[{{-1, -1}, {-0.6, -1.2}, {1, 1}, {0.6, 1.2}}]}}, {{{0.25,
+          0.}, {0., 0.25}}, Center}], {0.8, 7.2}], 
+      GeometricTransformationBox[GeometricTransformationBox[{
+         {GrayLevel[1], 
+          
+          InterpretationBox[
+           FilledCurveBox[{{
+             BSplineCurve[{{0., -1.5}, {1.5, -1.5}, {1.5, 1.5}, {0., 
+               1.5}, {-1.5, 1.5}, {-1.5, -1.5}, {0., -1.5}}, 
+               SplineKnots -> {
+                0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                 Rational[3, 4], 1, 1, 1}, 
+               SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}, {
+             BSplineCurve[{{0., -1.1}, {1.1, -1.1}, {1.1, 1.1}, {0., 
+               1.1}, {-1.1, 1.1}, {-1.1, -1.1}, {0., -1.1}}, 
+               SplineKnots -> {
+                0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                 Rational[3, 4], 1, 1, 1}, 
+               SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}}],
+           Annulus[{0, 0}, {1.1, 1.5}]]}, 
+         {GrayLevel[1], 
+          PolygonBox[{{-1, -1}, {-0.6, -1.2}, {1, 1}, {0.6, 1.2}}]}}, {{{0.25,
+          0.}, {0., 0.25}}, Center}], {4.2, 0.8}], 
+      GeometricTransformationBox[GeometricTransformationBox[{
+         {RGBColor[1, 0, 0], 
+          
+          InterpretationBox[
+           FilledCurveBox[{{
+             BSplineCurve[{{0., -1.5}, {1.5, -1.5}, {1.5, 1.5}, {0., 
+               1.5}, {-1.5, 1.5}, {-1.5, -1.5}, {0., -1.5}}, 
+               SplineKnots -> {
+                0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                 Rational[3, 4], 1, 1, 1}, 
+               SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}, {
+             BSplineCurve[{{0., -1.1}, {1.1, -1.1}, {1.1, 1.1}, {0., 
+               1.1}, {-1.1, 1.1}, {-1.1, -1.1}, {0., -1.1}}, 
+               SplineKnots -> {
+                0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                 Rational[3, 4], 1, 1, 1}, 
+               SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}}],
+           Annulus[{0, 0}, {1.1, 1.5}]]}, 
+         {RGBColor[1, 0, 0], 
+          PolygonBox[{{-1, -1}, {-0.6, -1.2}, {1, 1}, {0.6, 1.2}}]}}, {{{0.9, 
+         0.}, {0., 0.9}}, Center}], {2.5, 4}]}, {6, 0}], 
+    GeometricTransformationBox[
+     {EdgeForm[{RGBColor[0, 1, 0], Thickness[0.005]}], FaceForm[{GrayLevel[0],
+       Opacity[0]}], RectangleBox[{-0.1, -0.1}, {5.1, 8.1},
+       RoundingRadius->0.5]}, {6, 0}]}, GeometricTransformationBox[
+    {FaceForm[{GrayLevel[0], Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+      RoundingRadius->0.4]}, {12, 0}], GeometricTransformationBox[
+    {FaceForm[{GrayLevel[0], Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+      RoundingRadius->0.4]}, {18, 0}], GeometricTransformationBox[
+    {FaceForm[{GrayLevel[0], Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+      RoundingRadius->0.4]}, {24, 0}], GeometricTransformationBox[
+    {FaceForm[{GrayLevel[0], Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+      RoundingRadius->0.4]}, {30, 0}], GeometricTransformationBox[
+    {FaceForm[{GrayLevel[0], Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+      RoundingRadius->0.4]}, {36, 0}]},
+  ImageSize->Full]], "Output",
+ CellChangeTimes->{{3.8255858011234055`*^9, 3.825585846040855*^9}, {
+  3.8255858976173253`*^9, 3.8255859169158835`*^9}},
+ CellLabel->
+  "Out[531]=",ExpressionUUID->"d0cf2e36-4ec4-414b-b409-dc2f8fed2a1d"]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetAttributes", "[", 
+   RowBox[{"placeCard", ",", "HoldFirst"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"placeCard", "[", "cardLst_", "]"}], ":=", 
+  RowBox[{"Module", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", "i", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"For", "[", 
+      RowBox[{
+       RowBox[{"i", "=", "1"}], ",", 
+       RowBox[{"i", "\[LessEqual]", 
+        RowBox[{"Length", "[", "cardLst", "]"}]}], ",", 
+       RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"cardLst", "[", 
+            RowBox[{"[", 
+             RowBox[{"i", ",", "3"}], "]"}], "]"}], "===", 
+           "\"\<selected\>\""}], ",", "\[IndentingNewLine]", 
+          RowBox[{"cardLst", "=", 
+           RowBox[{"Delete", "[", 
+            RowBox[{"cardLst", ",", "i"}], "]"}]}]}], "\[IndentingNewLine]", 
+         "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], ";"}]}], 
+   "\[IndentingNewLine]", "]"}]}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.8255839723731546`*^9, 3.825584034161455*^9}, {
+  3.825584074372327*^9, 3.8255841490094376`*^9}, {3.825584352277495*^9, 
+  3.825584383015774*^9}, {3.8255872831299133`*^9, 3.8255873956698723`*^9}, {
+  3.8255874735545645`*^9, 3.8255874740983877`*^9}},
+ CellLabel->
+  "In[567]:=",ExpressionUUID->"12e7b64f-78ae-498d-ab8f-91f6a6b0f39f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"cardLst1", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"Green", ",", "3"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Blue", ",", "\"\<skip\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Red", ",", "\"\<reverse\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Black", ",", "\"\<wild\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Green", ",", "3"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Blue", ",", "\"\<skip\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Red", ",", "\"\<reverse\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Black", ",", "\"\<wild\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Green", ",", "3"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Blue", ",", "\"\<skip\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Red", ",", "\"\<reverse\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Black", ",", "\"\<wild\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Green", ",", "3"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Blue", ",", "\"\<skip\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Red", ",", "\"\<reverse\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Black", ",", "\"\<wild\>\""}], "}"}]}], "}"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.825584360519896*^9, 3.8255843639776573`*^9}, 
+   3.82558445937315*^9},
+ CellLabel->
+  "In[534]:=",ExpressionUUID->"60074d9c-191d-4df2-bf79-17f5dfa2c5ef"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"placeCard", "[", 
+  RowBox[{"cardLst1", ",", "2"}], "]"}]], "Input",
+ CellChangeTimes->{{3.8255843667752824`*^9, 3.825584371503775*^9}, {
+  3.8255844684092517`*^9, 3.8255844685196753`*^9}},
+ CellLabel->
+  "In[500]:=",ExpressionUUID->"0680af30-ff1c-4a2c-9216-7d6dd7bb1fef"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     InterpretationBox[
+      ButtonBox[
+       TooltipBox[
+        GraphicsBox[{
+          {GrayLevel[0], RectangleBox[{0, 0}]}, 
+          {GrayLevel[0], RectangleBox[{1, -1}]}, 
+          {RGBColor[0, 1, 0], RectangleBox[{0, -1}, {2, 1}]}},
+         AspectRatio->1,
+         DefaultBaseStyle->"ColorSwatchGraphics",
+         Frame->True,
+         FrameStyle->RGBColor[0., 0.6666666666666666, 0.],
+         FrameTicks->None,
+         ImageSize->
+          Dynamic[{
+           Automatic, 1.35 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+            Magnification]}],
+         PlotRangePadding->None],
+        StyleBox[
+         RowBox[{"RGBColor", "[", 
+           RowBox[{"0", ",", "1", ",", "0"}], "]"}], NumberMarks -> False]],
+       Appearance->None,
+       BaseStyle->{},
+       BaselinePosition->Baseline,
+       ButtonFunction:>With[{Typeset`box$ = EvaluationBox[]}, 
+         If[
+          Not[
+           AbsoluteCurrentValue["Deployed"]], 
+          SelectionMove[Typeset`box$, All, Expression]; 
+          FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
+          FrontEnd`Private`$ColorSelectorInitialColor = RGBColor[0, 1, 0]; 
+          FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
+          MathLink`CallFrontEnd[
+            FrontEnd`AttachCell[Typeset`box$, 
+             FrontEndResource["RGBColorValueSelector"], {0, {Left, Bottom}}, {
+             Left, Top}, 
+             "ClosingActions" -> {
+              "SelectionDeparture", "ParentChanged", "EvaluatorQuit"}]]]],
+       DefaultBaseStyle->{},
+       Evaluator->Automatic,
+       Method->"Preemptive"],
+      RGBColor[0, 1, 0],
+      Editable->False,
+      Selectable->False], ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     InterpretationBox[
+      ButtonBox[
+       TooltipBox[
+        GraphicsBox[{
+          {GrayLevel[0], RectangleBox[{0, 0}]}, 
+          {GrayLevel[0], RectangleBox[{1, -1}]}, 
+          {RGBColor[1, 0, 0], RectangleBox[{0, -1}, {2, 1}]}},
+         AspectRatio->1,
+         DefaultBaseStyle->"ColorSwatchGraphics",
+         Frame->True,
+         FrameStyle->RGBColor[0.6666666666666666, 0., 0.],
+         FrameTicks->None,
+         ImageSize->
+          Dynamic[{
+           Automatic, 1.35 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+            Magnification]}],
+         PlotRangePadding->None],
+        StyleBox[
+         RowBox[{"RGBColor", "[", 
+           RowBox[{"1", ",", "0", ",", "0"}], "]"}], NumberMarks -> False]],
+       Appearance->None,
+       BaseStyle->{},
+       BaselinePosition->Baseline,
+       ButtonFunction:>With[{Typeset`box$ = EvaluationBox[]}, 
+         If[
+          Not[
+           AbsoluteCurrentValue["Deployed"]], 
+          SelectionMove[Typeset`box$, All, Expression]; 
+          FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
+          FrontEnd`Private`$ColorSelectorInitialColor = RGBColor[1, 0, 0]; 
+          FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
+          MathLink`CallFrontEnd[
+            FrontEnd`AttachCell[Typeset`box$, 
+             FrontEndResource["RGBColorValueSelector"], {0, {Left, Bottom}}, {
+             Left, Top}, 
+             "ClosingActions" -> {
+              "SelectionDeparture", "ParentChanged", "EvaluatorQuit"}]]]],
+       DefaultBaseStyle->{},
+       Evaluator->Automatic,
+       Method->"Preemptive"],
+      RGBColor[1, 0, 0],
+      Editable->False,
+      Selectable->False], ",", "\<\"reverse\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     InterpretationBox[
+      ButtonBox[
+       TooltipBox[
+        GraphicsBox[{
+          {GrayLevel[0], RectangleBox[{0, 0}]}, 
+          {GrayLevel[0], RectangleBox[{1, -1}]}, 
+          {GrayLevel[0], RectangleBox[{0, -1}, {2, 1}]}},
+         AspectRatio->1,
+         DefaultBaseStyle->"ColorSwatchGraphics",
+         Frame->True,
+         FrameStyle->GrayLevel[0.],
+         FrameTicks->None,
+         ImageSize->
+          Dynamic[{
+           Automatic, 1.35 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+            Magnification]}],
+         PlotRangePadding->None],
+        StyleBox[
+         RowBox[{"GrayLevel", "[", "0", "]"}], NumberMarks -> False]],
+       Appearance->None,
+       BaseStyle->{},
+       BaselinePosition->Baseline,
+       ButtonFunction:>With[{Typeset`box$ = EvaluationBox[]}, 
+         If[
+          Not[
+           AbsoluteCurrentValue["Deployed"]], 
+          SelectionMove[Typeset`box$, All, Expression]; 
+          FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
+          FrontEnd`Private`$ColorSelectorInitialColor = GrayLevel[0]; 
+          FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
+          MathLink`CallFrontEnd[
+            FrontEnd`AttachCell[Typeset`box$, 
+             FrontEndResource["GrayLevelColorValueSelector"], {
+             0, {Left, Bottom}}, {Left, Top}, 
+             "ClosingActions" -> {
+              "SelectionDeparture", "ParentChanged", "EvaluatorQuit"}]]]],
+       DefaultBaseStyle->{},
+       Evaluator->Automatic,
+       Method->"Preemptive"],
+      GrayLevel[0],
+      Editable->False,
+      Selectable->False], ",", "\<\"wild\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     InterpretationBox[
+      ButtonBox[
+       TooltipBox[
+        GraphicsBox[{
+          {GrayLevel[0], RectangleBox[{0, 0}]}, 
+          {GrayLevel[0], RectangleBox[{1, -1}]}, 
+          {RGBColor[0, 1, 0], RectangleBox[{0, -1}, {2, 1}]}},
+         AspectRatio->1,
+         DefaultBaseStyle->"ColorSwatchGraphics",
+         Frame->True,
+         FrameStyle->RGBColor[0., 0.6666666666666666, 0.],
+         FrameTicks->None,
+         ImageSize->
+          Dynamic[{
+           Automatic, 1.35 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+            Magnification]}],
+         PlotRangePadding->None],
+        StyleBox[
+         RowBox[{"RGBColor", "[", 
+           RowBox[{"0", ",", "1", ",", "0"}], "]"}], NumberMarks -> False]],
+       Appearance->None,
+       BaseStyle->{},
+       BaselinePosition->Baseline,
+       ButtonFunction:>With[{Typeset`box$ = EvaluationBox[]}, 
+         If[
+          Not[
+           AbsoluteCurrentValue["Deployed"]], 
+          SelectionMove[Typeset`box$, All, Expression]; 
+          FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
+          FrontEnd`Private`$ColorSelectorInitialColor = RGBColor[0, 1, 0]; 
+          FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
+          MathLink`CallFrontEnd[
+            FrontEnd`AttachCell[Typeset`box$, 
+             FrontEndResource["RGBColorValueSelector"], {0, {Left, Bottom}}, {
+             Left, Top}, 
+             "ClosingActions" -> {
+              "SelectionDeparture", "ParentChanged", "EvaluatorQuit"}]]]],
+       DefaultBaseStyle->{},
+       Evaluator->Automatic,
+       Method->"Preemptive"],
+      RGBColor[0, 1, 0],
+      Editable->False,
+      Selectable->False], ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     InterpretationBox[
+      ButtonBox[
+       TooltipBox[
+        GraphicsBox[{
+          {GrayLevel[0], RectangleBox[{0, 0}]}, 
+          {GrayLevel[0], RectangleBox[{1, -1}]}, 
+          {RGBColor[0, 0, 1], RectangleBox[{0, -1}, {2, 1}]}},
+         AspectRatio->1,
+         DefaultBaseStyle->"ColorSwatchGraphics",
+         Frame->True,
+         FrameStyle->RGBColor[0., 0., 0.6666666666666666],
+         FrameTicks->None,
+         ImageSize->
+          Dynamic[{
+           Automatic, 1.35 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+            Magnification]}],
+         PlotRangePadding->None],
+        StyleBox[
+         RowBox[{"RGBColor", "[", 
+           RowBox[{"0", ",", "0", ",", "1"}], "]"}], NumberMarks -> False]],
+       Appearance->None,
+       BaseStyle->{},
+       BaselinePosition->Baseline,
+       ButtonFunction:>With[{Typeset`box$ = EvaluationBox[]}, 
+         If[
+          Not[
+           AbsoluteCurrentValue["Deployed"]], 
+          SelectionMove[Typeset`box$, All, Expression]; 
+          FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
+          FrontEnd`Private`$ColorSelectorInitialColor = RGBColor[0, 0, 1]; 
+          FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
+          MathLink`CallFrontEnd[
+            FrontEnd`AttachCell[Typeset`box$, 
+             FrontEndResource["RGBColorValueSelector"], {0, {Left, Bottom}}, {
+             Left, Top}, 
+             "ClosingActions" -> {
+              "SelectionDeparture", "ParentChanged", "EvaluatorQuit"}]]]],
+       DefaultBaseStyle->{},
+       Evaluator->Automatic,
+       Method->"Preemptive"],
+      RGBColor[0, 0, 1],
+      Editable->False,
+      Selectable->False], ",", "\<\"skip\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     InterpretationBox[
+      ButtonBox[
+       TooltipBox[
+        GraphicsBox[{
+          {GrayLevel[0], RectangleBox[{0, 0}]}, 
+          {GrayLevel[0], RectangleBox[{1, -1}]}, 
+          {RGBColor[1, 0, 0], RectangleBox[{0, -1}, {2, 1}]}},
+         AspectRatio->1,
+         DefaultBaseStyle->"ColorSwatchGraphics",
+         Frame->True,
+         FrameStyle->RGBColor[0.6666666666666666, 0., 0.],
+         FrameTicks->None,
+         ImageSize->
+          Dynamic[{
+           Automatic, 1.35 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+            Magnification]}],
+         PlotRangePadding->None],
+        StyleBox[
+         RowBox[{"RGBColor", "[", 
+           RowBox[{"1", ",", "0", ",", "0"}], "]"}], NumberMarks -> False]],
+       Appearance->None,
+       BaseStyle->{},
+       BaselinePosition->Baseline,
+       ButtonFunction:>With[{Typeset`box$ = EvaluationBox[]}, 
+         If[
+          Not[
+           AbsoluteCurrentValue["Deployed"]], 
+          SelectionMove[Typeset`box$, All, Expression]; 
+          FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
+          FrontEnd`Private`$ColorSelectorInitialColor = RGBColor[1, 0, 0]; 
+          FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
+          MathLink`CallFrontEnd[
+            FrontEnd`AttachCell[Typeset`box$, 
+             FrontEndResource["RGBColorValueSelector"], {0, {Left, Bottom}}, {
+             Left, Top}, 
+             "ClosingActions" -> {
+              "SelectionDeparture", "ParentChanged", "EvaluatorQuit"}]]]],
+       DefaultBaseStyle->{},
+       Evaluator->Automatic,
+       Method->"Preemptive"],
+      RGBColor[1, 0, 0],
+      Editable->False,
+      Selectable->False], ",", "\<\"reverse\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     InterpretationBox[
+      ButtonBox[
+       TooltipBox[
+        GraphicsBox[{
+          {GrayLevel[0], RectangleBox[{0, 0}]}, 
+          {GrayLevel[0], RectangleBox[{1, -1}]}, 
+          {GrayLevel[0], RectangleBox[{0, -1}, {2, 1}]}},
+         AspectRatio->1,
+         DefaultBaseStyle->"ColorSwatchGraphics",
+         Frame->True,
+         FrameStyle->GrayLevel[0.],
+         FrameTicks->None,
+         ImageSize->
+          Dynamic[{
+           Automatic, 1.35 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+            Magnification]}],
+         PlotRangePadding->None],
+        StyleBox[
+         RowBox[{"GrayLevel", "[", "0", "]"}], NumberMarks -> False]],
+       Appearance->None,
+       BaseStyle->{},
+       BaselinePosition->Baseline,
+       ButtonFunction:>With[{Typeset`box$ = EvaluationBox[]}, 
+         If[
+          Not[
+           AbsoluteCurrentValue["Deployed"]], 
+          SelectionMove[Typeset`box$, All, Expression]; 
+          FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
+          FrontEnd`Private`$ColorSelectorInitialColor = GrayLevel[0]; 
+          FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
+          MathLink`CallFrontEnd[
+            FrontEnd`AttachCell[Typeset`box$, 
+             FrontEndResource["GrayLevelColorValueSelector"], {
+             0, {Left, Bottom}}, {Left, Top}, 
+             "ClosingActions" -> {
+              "SelectionDeparture", "ParentChanged", "EvaluatorQuit"}]]]],
+       DefaultBaseStyle->{},
+       Evaluator->Automatic,
+       Method->"Preemptive"],
+      GrayLevel[0],
+      Editable->False,
+      Selectable->False], ",", "\<\"wild\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     InterpretationBox[
+      ButtonBox[
+       TooltipBox[
+        GraphicsBox[{
+          {GrayLevel[0], RectangleBox[{0, 0}]}, 
+          {GrayLevel[0], RectangleBox[{1, -1}]}, 
+          {RGBColor[0, 1, 0], RectangleBox[{0, -1}, {2, 1}]}},
+         AspectRatio->1,
+         DefaultBaseStyle->"ColorSwatchGraphics",
+         Frame->True,
+         FrameStyle->RGBColor[0., 0.6666666666666666, 0.],
+         FrameTicks->None,
+         ImageSize->
+          Dynamic[{
+           Automatic, 1.35 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+            Magnification]}],
+         PlotRangePadding->None],
+        StyleBox[
+         RowBox[{"RGBColor", "[", 
+           RowBox[{"0", ",", "1", ",", "0"}], "]"}], NumberMarks -> False]],
+       Appearance->None,
+       BaseStyle->{},
+       BaselinePosition->Baseline,
+       ButtonFunction:>With[{Typeset`box$ = EvaluationBox[]}, 
+         If[
+          Not[
+           AbsoluteCurrentValue["Deployed"]], 
+          SelectionMove[Typeset`box$, All, Expression]; 
+          FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
+          FrontEnd`Private`$ColorSelectorInitialColor = RGBColor[0, 1, 0]; 
+          FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
+          MathLink`CallFrontEnd[
+            FrontEnd`AttachCell[Typeset`box$, 
+             FrontEndResource["RGBColorValueSelector"], {0, {Left, Bottom}}, {
+             Left, Top}, 
+             "ClosingActions" -> {
+              "SelectionDeparture", "ParentChanged", "EvaluatorQuit"}]]]],
+       DefaultBaseStyle->{},
+       Evaluator->Automatic,
+       Method->"Preemptive"],
+      RGBColor[0, 1, 0],
+      Editable->False,
+      Selectable->False], ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     InterpretationBox[
+      ButtonBox[
+       TooltipBox[
+        GraphicsBox[{
+          {GrayLevel[0], RectangleBox[{0, 0}]}, 
+          {GrayLevel[0], RectangleBox[{1, -1}]}, 
+          {RGBColor[0, 0, 1], RectangleBox[{0, -1}, {2, 1}]}},
+         AspectRatio->1,
+         DefaultBaseStyle->"ColorSwatchGraphics",
+         Frame->True,
+         FrameStyle->RGBColor[0., 0., 0.6666666666666666],
+         FrameTicks->None,
+         ImageSize->
+          Dynamic[{
+           Automatic, 1.35 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+            Magnification]}],
+         PlotRangePadding->None],
+        StyleBox[
+         RowBox[{"RGBColor", "[", 
+           RowBox[{"0", ",", "0", ",", "1"}], "]"}], NumberMarks -> False]],
+       Appearance->None,
+       BaseStyle->{},
+       BaselinePosition->Baseline,
+       ButtonFunction:>With[{Typeset`box$ = EvaluationBox[]}, 
+         If[
+          Not[
+           AbsoluteCurrentValue["Deployed"]], 
+          SelectionMove[Typeset`box$, All, Expression]; 
+          FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
+          FrontEnd`Private`$ColorSelectorInitialColor = RGBColor[0, 0, 1]; 
+          FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
+          MathLink`CallFrontEnd[
+            FrontEnd`AttachCell[Typeset`box$, 
+             FrontEndResource["RGBColorValueSelector"], {0, {Left, Bottom}}, {
+             Left, Top}, 
+             "ClosingActions" -> {
+              "SelectionDeparture", "ParentChanged", "EvaluatorQuit"}]]]],
+       DefaultBaseStyle->{},
+       Evaluator->Automatic,
+       Method->"Preemptive"],
+      RGBColor[0, 0, 1],
+      Editable->False,
+      Selectable->False], ",", "\<\"skip\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     InterpretationBox[
+      ButtonBox[
+       TooltipBox[
+        GraphicsBox[{
+          {GrayLevel[0], RectangleBox[{0, 0}]}, 
+          {GrayLevel[0], RectangleBox[{1, -1}]}, 
+          {RGBColor[1, 0, 0], RectangleBox[{0, -1}, {2, 1}]}},
+         AspectRatio->1,
+         DefaultBaseStyle->"ColorSwatchGraphics",
+         Frame->True,
+         FrameStyle->RGBColor[0.6666666666666666, 0., 0.],
+         FrameTicks->None,
+         ImageSize->
+          Dynamic[{
+           Automatic, 1.35 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+            Magnification]}],
+         PlotRangePadding->None],
+        StyleBox[
+         RowBox[{"RGBColor", "[", 
+           RowBox[{"1", ",", "0", ",", "0"}], "]"}], NumberMarks -> False]],
+       Appearance->None,
+       BaseStyle->{},
+       BaselinePosition->Baseline,
+       ButtonFunction:>With[{Typeset`box$ = EvaluationBox[]}, 
+         If[
+          Not[
+           AbsoluteCurrentValue["Deployed"]], 
+          SelectionMove[Typeset`box$, All, Expression]; 
+          FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
+          FrontEnd`Private`$ColorSelectorInitialColor = RGBColor[1, 0, 0]; 
+          FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
+          MathLink`CallFrontEnd[
+            FrontEnd`AttachCell[Typeset`box$, 
+             FrontEndResource["RGBColorValueSelector"], {0, {Left, Bottom}}, {
+             Left, Top}, 
+             "ClosingActions" -> {
+              "SelectionDeparture", "ParentChanged", "EvaluatorQuit"}]]]],
+       DefaultBaseStyle->{},
+       Evaluator->Automatic,
+       Method->"Preemptive"],
+      RGBColor[1, 0, 0],
+      Editable->False,
+      Selectable->False], ",", "\<\"reverse\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     InterpretationBox[
+      ButtonBox[
+       TooltipBox[
+        GraphicsBox[{
+          {GrayLevel[0], RectangleBox[{0, 0}]}, 
+          {GrayLevel[0], RectangleBox[{1, -1}]}, 
+          {GrayLevel[0], RectangleBox[{0, -1}, {2, 1}]}},
+         AspectRatio->1,
+         DefaultBaseStyle->"ColorSwatchGraphics",
+         Frame->True,
+         FrameStyle->GrayLevel[0.],
+         FrameTicks->None,
+         ImageSize->
+          Dynamic[{
+           Automatic, 1.35 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+            Magnification]}],
+         PlotRangePadding->None],
+        StyleBox[
+         RowBox[{"GrayLevel", "[", "0", "]"}], NumberMarks -> False]],
+       Appearance->None,
+       BaseStyle->{},
+       BaselinePosition->Baseline,
+       ButtonFunction:>With[{Typeset`box$ = EvaluationBox[]}, 
+         If[
+          Not[
+           AbsoluteCurrentValue["Deployed"]], 
+          SelectionMove[Typeset`box$, All, Expression]; 
+          FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
+          FrontEnd`Private`$ColorSelectorInitialColor = GrayLevel[0]; 
+          FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
+          MathLink`CallFrontEnd[
+            FrontEnd`AttachCell[Typeset`box$, 
+             FrontEndResource["GrayLevelColorValueSelector"], {
+             0, {Left, Bottom}}, {Left, Top}, 
+             "ClosingActions" -> {
+              "SelectionDeparture", "ParentChanged", "EvaluatorQuit"}]]]],
+       DefaultBaseStyle->{},
+       Evaluator->Automatic,
+       Method->"Preemptive"],
+      GrayLevel[0],
+      Editable->False,
+      Selectable->False], ",", "\<\"wild\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     InterpretationBox[
+      ButtonBox[
+       TooltipBox[
+        GraphicsBox[{
+          {GrayLevel[0], RectangleBox[{0, 0}]}, 
+          {GrayLevel[0], RectangleBox[{1, -1}]}, 
+          {RGBColor[0, 1, 0], RectangleBox[{0, -1}, {2, 1}]}},
+         AspectRatio->1,
+         DefaultBaseStyle->"ColorSwatchGraphics",
+         Frame->True,
+         FrameStyle->RGBColor[0., 0.6666666666666666, 0.],
+         FrameTicks->None,
+         ImageSize->
+          Dynamic[{
+           Automatic, 1.35 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+            Magnification]}],
+         PlotRangePadding->None],
+        StyleBox[
+         RowBox[{"RGBColor", "[", 
+           RowBox[{"0", ",", "1", ",", "0"}], "]"}], NumberMarks -> False]],
+       Appearance->None,
+       BaseStyle->{},
+       BaselinePosition->Baseline,
+       ButtonFunction:>With[{Typeset`box$ = EvaluationBox[]}, 
+         If[
+          Not[
+           AbsoluteCurrentValue["Deployed"]], 
+          SelectionMove[Typeset`box$, All, Expression]; 
+          FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
+          FrontEnd`Private`$ColorSelectorInitialColor = RGBColor[0, 1, 0]; 
+          FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
+          MathLink`CallFrontEnd[
+            FrontEnd`AttachCell[Typeset`box$, 
+             FrontEndResource["RGBColorValueSelector"], {0, {Left, Bottom}}, {
+             Left, Top}, 
+             "ClosingActions" -> {
+              "SelectionDeparture", "ParentChanged", "EvaluatorQuit"}]]]],
+       DefaultBaseStyle->{},
+       Evaluator->Automatic,
+       Method->"Preemptive"],
+      RGBColor[0, 1, 0],
+      Editable->False,
+      Selectable->False], ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     InterpretationBox[
+      ButtonBox[
+       TooltipBox[
+        GraphicsBox[{
+          {GrayLevel[0], RectangleBox[{0, 0}]}, 
+          {GrayLevel[0], RectangleBox[{1, -1}]}, 
+          {RGBColor[0, 0, 1], RectangleBox[{0, -1}, {2, 1}]}},
+         AspectRatio->1,
+         DefaultBaseStyle->"ColorSwatchGraphics",
+         Frame->True,
+         FrameStyle->RGBColor[0., 0., 0.6666666666666666],
+         FrameTicks->None,
+         ImageSize->
+          Dynamic[{
+           Automatic, 1.35 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+            Magnification]}],
+         PlotRangePadding->None],
+        StyleBox[
+         RowBox[{"RGBColor", "[", 
+           RowBox[{"0", ",", "0", ",", "1"}], "]"}], NumberMarks -> False]],
+       Appearance->None,
+       BaseStyle->{},
+       BaselinePosition->Baseline,
+       ButtonFunction:>With[{Typeset`box$ = EvaluationBox[]}, 
+         If[
+          Not[
+           AbsoluteCurrentValue["Deployed"]], 
+          SelectionMove[Typeset`box$, All, Expression]; 
+          FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
+          FrontEnd`Private`$ColorSelectorInitialColor = RGBColor[0, 0, 1]; 
+          FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
+          MathLink`CallFrontEnd[
+            FrontEnd`AttachCell[Typeset`box$, 
+             FrontEndResource["RGBColorValueSelector"], {0, {Left, Bottom}}, {
+             Left, Top}, 
+             "ClosingActions" -> {
+              "SelectionDeparture", "ParentChanged", "EvaluatorQuit"}]]]],
+       DefaultBaseStyle->{},
+       Evaluator->Automatic,
+       Method->"Preemptive"],
+      RGBColor[0, 0, 1],
+      Editable->False,
+      Selectable->False], ",", "\<\"skip\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     InterpretationBox[
+      ButtonBox[
+       TooltipBox[
+        GraphicsBox[{
+          {GrayLevel[0], RectangleBox[{0, 0}]}, 
+          {GrayLevel[0], RectangleBox[{1, -1}]}, 
+          {RGBColor[1, 0, 0], RectangleBox[{0, -1}, {2, 1}]}},
+         AspectRatio->1,
+         DefaultBaseStyle->"ColorSwatchGraphics",
+         Frame->True,
+         FrameStyle->RGBColor[0.6666666666666666, 0., 0.],
+         FrameTicks->None,
+         ImageSize->
+          Dynamic[{
+           Automatic, 1.35 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+            Magnification]}],
+         PlotRangePadding->None],
+        StyleBox[
+         RowBox[{"RGBColor", "[", 
+           RowBox[{"1", ",", "0", ",", "0"}], "]"}], NumberMarks -> False]],
+       Appearance->None,
+       BaseStyle->{},
+       BaselinePosition->Baseline,
+       ButtonFunction:>With[{Typeset`box$ = EvaluationBox[]}, 
+         If[
+          Not[
+           AbsoluteCurrentValue["Deployed"]], 
+          SelectionMove[Typeset`box$, All, Expression]; 
+          FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
+          FrontEnd`Private`$ColorSelectorInitialColor = RGBColor[1, 0, 0]; 
+          FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
+          MathLink`CallFrontEnd[
+            FrontEnd`AttachCell[Typeset`box$, 
+             FrontEndResource["RGBColorValueSelector"], {0, {Left, Bottom}}, {
+             Left, Top}, 
+             "ClosingActions" -> {
+              "SelectionDeparture", "ParentChanged", "EvaluatorQuit"}]]]],
+       DefaultBaseStyle->{},
+       Evaluator->Automatic,
+       Method->"Preemptive"],
+      RGBColor[1, 0, 0],
+      Editable->False,
+      Selectable->False], ",", "\<\"reverse\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     InterpretationBox[
+      ButtonBox[
+       TooltipBox[
+        GraphicsBox[{
+          {GrayLevel[0], RectangleBox[{0, 0}]}, 
+          {GrayLevel[0], RectangleBox[{1, -1}]}, 
+          {GrayLevel[0], RectangleBox[{0, -1}, {2, 1}]}},
+         AspectRatio->1,
+         DefaultBaseStyle->"ColorSwatchGraphics",
+         Frame->True,
+         FrameStyle->GrayLevel[0.],
+         FrameTicks->None,
+         ImageSize->
+          Dynamic[{
+           Automatic, 1.35 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+            Magnification]}],
+         PlotRangePadding->None],
+        StyleBox[
+         RowBox[{"GrayLevel", "[", "0", "]"}], NumberMarks -> False]],
+       Appearance->None,
+       BaseStyle->{},
+       BaselinePosition->Baseline,
+       ButtonFunction:>With[{Typeset`box$ = EvaluationBox[]}, 
+         If[
+          Not[
+           AbsoluteCurrentValue["Deployed"]], 
+          SelectionMove[Typeset`box$, All, Expression]; 
+          FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
+          FrontEnd`Private`$ColorSelectorInitialColor = GrayLevel[0]; 
+          FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
+          MathLink`CallFrontEnd[
+            FrontEnd`AttachCell[Typeset`box$, 
+             FrontEndResource["GrayLevelColorValueSelector"], {
+             0, {Left, Bottom}}, {Left, Top}, 
+             "ClosingActions" -> {
+              "SelectionDeparture", "ParentChanged", "EvaluatorQuit"}]]]],
+       DefaultBaseStyle->{},
+       Evaluator->Automatic,
+       Method->"Preemptive"],
+      GrayLevel[0],
+      Editable->False,
+      Selectable->False], ",", "\<\"wild\"\>"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.8255843719553604`*^9, 3.8255844107727427`*^9}, 
+   3.825584469392968*^9},
+ CellLabel->
+  "Out[500]=",ExpressionUUID->"750cfc3b-4d30-4425-aefc-52298e30c611"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"displayImage", "[", "modelInfo_", "]"}], ":=", 
+  RowBox[{"unoCardGenerator", "[", "modelInfo", "]"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.823545842847736*^9, 3.8235459774748554`*^9}, {
+   3.823993021700531*^9, 3.82399308737811*^9}, {3.8255859445029006`*^9, 
+   3.8255859549365845`*^9}, {3.8255866111515455`*^9, 3.82558661821204*^9}, {
+   3.825587074401065*^9, 3.8255870764295154`*^9}, 3.8255871389263797`*^9},
+ CellLabel->
+  "In[553]:=",ExpressionUUID->"10bd9fea-4559-40a1-a246-ae73be5e4060"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"modelInfo1", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"Green", ",", "3", ",", "\"\<okay\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Blue", ",", "\"\<skip\>\"", ",", "\"\<okay\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Red", ",", "\"\<reverse\>\"", ",", "\"\<okay\>\""}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"Black", ",", "\"\<wild\>\"", ",", "\"\<selected\>\""}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"Green", ",", "3", ",", "\"\<okay\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Blue", ",", "\"\<skip\>\"", ",", "\"\<okay\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Red", ",", "\"\<reverse\>\"", ",", "\"\<okay\>\""}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"Black", ",", "\"\<wild\>\"", ",", "\"\<okay\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Green", ",", "3", ",", "\"\<okay\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Blue", ",", "\"\<skip\>\"", ",", "\"\<okay\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Red", ",", "\"\<reverse\>\"", ",", "\"\<okay\>\""}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"Black", ",", "\"\<wild\>\"", ",", "\"\<okay\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Green", ",", "3", ",", "\"\<okay\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Blue", ",", "\"\<skip\>\"", ",", "\"\<okay\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Red", ",", "\"\<reverse\>\"", ",", "\"\<okay\>\""}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"Black", ",", "\"\<wild\>\"", ",", "\"\<selected\>\""}], 
+      "}"}]}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.8255859955181265`*^9, 3.825586018512217*^9}, {
+  3.8255866270407577`*^9, 3.825586696586356*^9}, {3.8255874320515485`*^9, 
+  3.8255874335191793`*^9}},
+ CellLabel->
+  "In[571]:=",ExpressionUUID->"04d1e2fa-f459-440a-bc6d-4377f19368f5"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"modelInfo1", "[", 
+  RowBox[{"[", 
+   RowBox[{"1", ",", "3"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.825586860772397*^9, 3.82558688834999*^9}},
+ CellLabel->
+  "In[546]:=",ExpressionUUID->"dc0368d2-4ab4-4adf-8b31-1a5692c23a72"],
+
+Cell[BoxData["\<\"okay\"\>"], "Output",
+ CellChangeTimes->{{3.8255868663995333`*^9, 3.8255868888954144`*^9}},
+ CellLabel->
+  "Out[546]=",ExpressionUUID->"c77b747e-14c2-4c94-a7c7-4efaae4e4dcf"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"placeCard", "[", "modelInfo1", "]"}]], "Input",
+ CellChangeTimes->{{3.8255874071789265`*^9, 3.825587411681445*^9}},
+ CellLabel->
+  "In[572]:=",ExpressionUUID->"5b8f0736-c4c2-4c4b-aebb-c3fb88614635"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"displayImage", "[", "modelInfo1", "]"}]], "Input",
+ CellChangeTimes->{{3.825586700645197*^9, 3.825586704521931*^9}, {
+  3.825587482379225*^9, 3.825587499995601*^9}},
+ CellLabel->
+  "In[573]:=",ExpressionUUID->"6a00c2ad-8f8c-47ea-b6f4-9868e80e57f1"],
+
+Cell[BoxData[
+ GraphicsBox[{GeometricTransformationBox[{
+     {FaceForm[RGBColor[0, 1, 0]], RectangleBox[{0.3, 0.3}, {4.7, 7.7},
+       RoundingRadius->0.2]}, 
+     {GrayLevel[1], 
+      GeometricTransformationBox[
+       DiskBox[{2.5, 4}, {3.5, 1.9}], {{{0.5, -0.8660254037844386}, {
+        0.8660254037844386, 0.5}}, Center}]}, 
+     {EdgeForm[{GrayLevel[0], Thickness[Tiny]}], FaceForm[{GrayLevel[0], 
+      Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+       RoundingRadius->0.4]}, InsetBox[
+      StyleBox["3",
+       StripOnInput->False,
+       LineColor->GrayLevel[1],
+       FrontFaceColor->GrayLevel[1],
+       BackFaceColor->GrayLevel[1],
+       GraphicsColor->GrayLevel[1],
+       FontSize->20,
+       FontWeight->Bold,
+       FontSlant->Italic,
+       FontColor->GrayLevel[1]], {0.7, 7.2}], InsetBox[
+      StyleBox["3",
+       StripOnInput->False,
+       LineColor->GrayLevel[1],
+       FrontFaceColor->GrayLevel[1],
+       BackFaceColor->GrayLevel[1],
+       GraphicsColor->GrayLevel[1],
+       FontSize->20,
+       FontWeight->Bold,
+       FontSlant->Italic,
+       FontColor->GrayLevel[1]], {4.3, 0.8}], InsetBox[
+      StyleBox["3",
+       StripOnInput->False,
+       LineColor->RGBColor[0, 1, 0],
+       FrontFaceColor->RGBColor[0, 1, 0],
+       BackFaceColor->RGBColor[0, 1, 0],
+       GraphicsColor->RGBColor[0, 1, 0],
+       FontSize->80,
+       FontWeight->Bold,
+       FontSlant->Italic,
+       FontColor->RGBColor[0, 1, 0]], {2.3, 4}]}, {0, 0}], 
+   GeometricTransformationBox[{
+     {FaceForm[RGBColor[0, 0, 1]], RectangleBox[{0.3, 0.3}, {4.7, 7.7},
+       RoundingRadius->0.2]}, 
+     {GrayLevel[1], 
+      GeometricTransformationBox[
+       DiskBox[{2.5, 4}, {3.5, 1.9}], {{{0.5, -0.8660254037844386}, {
+        0.8660254037844386, 0.5}}, Center}]}, 
+     {EdgeForm[{GrayLevel[0], Thickness[Tiny]}], FaceForm[{GrayLevel[0], 
+      Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+       RoundingRadius->0.4]}, 
+     GeometricTransformationBox[GeometricTransformationBox[{
+        {GrayLevel[1], 
+         InterpretationBox[
+          FilledCurveBox[{{
+            BSplineCurve[{{0., -1.5}, {1.5, -1.5}, {1.5, 1.5}, {0., 
+              1.5}, {-1.5, 1.5}, {-1.5, -1.5}, {0., -1.5}}, 
+              SplineKnots -> {
+               0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                Rational[3, 4], 1, 1, 1}, 
+              SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}, {
+            BSplineCurve[{{0., -1.1}, {1.1, -1.1}, {1.1, 1.1}, {0., 
+              1.1}, {-1.1, 1.1}, {-1.1, -1.1}, {0., -1.1}}, 
+              SplineKnots -> {
+               0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                Rational[3, 4], 1, 1, 1}, 
+              SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}}],
+          Annulus[{0, 0}, {1.1, 1.5}]]}, 
+        {GrayLevel[1], 
+         PolygonBox[{{-1, -1}, {-0.6, -1.2}, {1, 1}, {0.6, 1.2}}]}}, {{{0.25, 
+        0.}, {0., 0.25}}, Center}], {0.8, 7.2}], 
+     GeometricTransformationBox[GeometricTransformationBox[{
+        {GrayLevel[1], 
+         InterpretationBox[
+          FilledCurveBox[{{
+            BSplineCurve[{{0., -1.5}, {1.5, -1.5}, {1.5, 1.5}, {0., 
+              1.5}, {-1.5, 1.5}, {-1.5, -1.5}, {0., -1.5}}, 
+              SplineKnots -> {
+               0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                Rational[3, 4], 1, 1, 1}, 
+              SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}, {
+            BSplineCurve[{{0., -1.1}, {1.1, -1.1}, {1.1, 1.1}, {0., 
+              1.1}, {-1.1, 1.1}, {-1.1, -1.1}, {0., -1.1}}, 
+              SplineKnots -> {
+               0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                Rational[3, 4], 1, 1, 1}, 
+              SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}}],
+          Annulus[{0, 0}, {1.1, 1.5}]]}, 
+        {GrayLevel[1], 
+         PolygonBox[{{-1, -1}, {-0.6, -1.2}, {1, 1}, {0.6, 1.2}}]}}, {{{0.25, 
+        0.}, {0., 0.25}}, Center}], {4.2, 0.8}], 
+     GeometricTransformationBox[GeometricTransformationBox[{
+        {RGBColor[0, 0, 1], 
+         InterpretationBox[
+          FilledCurveBox[{{
+            BSplineCurve[{{0., -1.5}, {1.5, -1.5}, {1.5, 1.5}, {0., 
+              1.5}, {-1.5, 1.5}, {-1.5, -1.5}, {0., -1.5}}, 
+              SplineKnots -> {
+               0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                Rational[3, 4], 1, 1, 1}, 
+              SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}, {
+            BSplineCurve[{{0., -1.1}, {1.1, -1.1}, {1.1, 1.1}, {0., 
+              1.1}, {-1.1, 1.1}, {-1.1, -1.1}, {0., -1.1}}, 
+              SplineKnots -> {
+               0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                Rational[3, 4], 1, 1, 1}, 
+              SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}}],
+          Annulus[{0, 0}, {1.1, 1.5}]]}, 
+        {RGBColor[0, 0, 1], 
+         PolygonBox[{{-1, -1}, {-0.6, -1.2}, {1, 1}, {0.6, 1.2}}]}}, {{{0.9, 
+        0.}, {0., 0.9}}, Center}], {2.5, 4}]}, {6, 0}], 
+   GeometricTransformationBox[{
+     {FaceForm[RGBColor[1, 0, 0]], RectangleBox[{0.3, 0.3}, {4.7, 7.7},
+       RoundingRadius->0.2]}, 
+     {GrayLevel[1], 
+      GeometricTransformationBox[
+       DiskBox[{2.5, 4}, {3.5, 1.9}], {{{0.5, -0.8660254037844386}, {
+        0.8660254037844386, 0.5}}, Center}]}, 
+     {EdgeForm[{GrayLevel[0], Thickness[Tiny]}], FaceForm[{GrayLevel[0], 
+      Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+       RoundingRadius->0.4]}, 
+     GeometricTransformationBox[
+      GeometricTransformationBox[{GeometricTransformationBox[{
+          {FaceForm[GrayLevel[1]], 
+           DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+          {FaceForm[GrayLevel[1]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+          {FaceForm[GrayLevel[1]], 
+           TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+            "Triangle"]}}, {{{0.7071067811865475, -0.7071067811865475}, {
+          0.7071067811865475, 0.7071067811865475}}, Center}], 
+        GeometricTransformationBox[
+         GeometricTransformationBox[GeometricTransformationBox[{
+            {FaceForm[GrayLevel[1]], 
+             DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+            {FaceForm[GrayLevel[1]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+            {FaceForm[GrayLevel[1]], 
+             TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+              "Triangle"]}}, {{{-1, 0}, {0, -1}}, Center}], {0, -1.9}], {{{
+          0.7071067811865475, -0.7071067811865475}, {0.7071067811865475, 
+          0.7071067811865475}}, Center}]}, {{{0.25, 0.}, {0., 0.25}}, 
+        Center}], {0.3, 7.5}], 
+     GeometricTransformationBox[
+      GeometricTransformationBox[{GeometricTransformationBox[{
+          {FaceForm[GrayLevel[1]], 
+           DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+          {FaceForm[GrayLevel[1]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+          {FaceForm[GrayLevel[1]], 
+           TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+            "Triangle"]}}, {{{0.7071067811865475, -0.7071067811865475}, {
+          0.7071067811865475, 0.7071067811865475}}, Center}], 
+        GeometricTransformationBox[
+         GeometricTransformationBox[GeometricTransformationBox[{
+            {FaceForm[GrayLevel[1]], 
+             DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+            {FaceForm[GrayLevel[1]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+            {FaceForm[GrayLevel[1]], 
+             TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+              "Triangle"]}}, {{{-1, 0}, {0, -1}}, Center}], {0, -1.9}], {{{
+          0.7071067811865475, -0.7071067811865475}, {0.7071067811865475, 
+          0.7071067811865475}}, Center}]}, {{{0.25, 0.}, {0., 0.25}}, 
+        Center}], {3.8, 1.4}], 
+     GeometricTransformationBox[
+      GeometricTransformationBox[{GeometricTransformationBox[{
+          {FaceForm[RGBColor[1, 0, 0]], 
+           DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+          {FaceForm[RGBColor[1, 0, 0]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+          {FaceForm[RGBColor[1, 0, 0]], 
+           TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+            "Triangle"]}}, {{{0.7071067811865475, -0.7071067811865475}, {
+          0.7071067811865475, 0.7071067811865475}}, Center}], 
+        GeometricTransformationBox[
+         GeometricTransformationBox[GeometricTransformationBox[{
+            {FaceForm[RGBColor[1, 0, 0]], 
+             DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+            {FaceForm[RGBColor[1, 0, 0]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+            {FaceForm[RGBColor[1, 0, 0]], 
+             TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+              "Triangle"]}}, {{{-1, 0}, {0, -1}}, Center}], {0, -1.9}], {{{
+          0.7071067811865475, -0.7071067811865475}, {0.7071067811865475, 
+          0.7071067811865475}}, Center}]}, {{{0.9, 0.}, {0., 0.9}}, 
+        Center}], {2, 4.5}]}, {12, 0}], GeometricTransformationBox[{
+     {FaceForm[RGBColor[0, 1, 0]], RectangleBox[{0.3, 0.3}, {4.7, 7.7},
+       RoundingRadius->0.2]}, 
+     {GrayLevel[1], 
+      GeometricTransformationBox[
+       DiskBox[{2.5, 4}, {3.5, 1.9}], {{{0.5, -0.8660254037844386}, {
+        0.8660254037844386, 0.5}}, Center}]}, 
+     {EdgeForm[{GrayLevel[0], Thickness[Tiny]}], FaceForm[{GrayLevel[0], 
+      Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+       RoundingRadius->0.4]}, InsetBox[
+      StyleBox["3",
+       StripOnInput->False,
+       LineColor->GrayLevel[1],
+       FrontFaceColor->GrayLevel[1],
+       BackFaceColor->GrayLevel[1],
+       GraphicsColor->GrayLevel[1],
+       FontSize->20,
+       FontWeight->Bold,
+       FontSlant->Italic,
+       FontColor->GrayLevel[1]], {0.7, 7.2}], InsetBox[
+      StyleBox["3",
+       StripOnInput->False,
+       LineColor->GrayLevel[1],
+       FrontFaceColor->GrayLevel[1],
+       BackFaceColor->GrayLevel[1],
+       GraphicsColor->GrayLevel[1],
+       FontSize->20,
+       FontWeight->Bold,
+       FontSlant->Italic,
+       FontColor->GrayLevel[1]], {4.3, 0.8}], InsetBox[
+      StyleBox["3",
+       StripOnInput->False,
+       LineColor->RGBColor[0, 1, 0],
+       FrontFaceColor->RGBColor[0, 1, 0],
+       BackFaceColor->RGBColor[0, 1, 0],
+       GraphicsColor->RGBColor[0, 1, 0],
+       FontSize->80,
+       FontWeight->Bold,
+       FontSlant->Italic,
+       FontColor->RGBColor[0, 1, 0]], {2.3, 4}]}, {18, 0}], 
+   GeometricTransformationBox[{
+     {FaceForm[RGBColor[0, 0, 1]], RectangleBox[{0.3, 0.3}, {4.7, 7.7},
+       RoundingRadius->0.2]}, 
+     {GrayLevel[1], 
+      GeometricTransformationBox[
+       DiskBox[{2.5, 4}, {3.5, 1.9}], {{{0.5, -0.8660254037844386}, {
+        0.8660254037844386, 0.5}}, Center}]}, 
+     {EdgeForm[{GrayLevel[0], Thickness[Tiny]}], FaceForm[{GrayLevel[0], 
+      Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+       RoundingRadius->0.4]}, 
+     GeometricTransformationBox[GeometricTransformationBox[{
+        {GrayLevel[1], 
+         InterpretationBox[
+          FilledCurveBox[{{
+            BSplineCurve[{{0., -1.5}, {1.5, -1.5}, {1.5, 1.5}, {0., 
+              1.5}, {-1.5, 1.5}, {-1.5, -1.5}, {0., -1.5}}, 
+              SplineKnots -> {
+               0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                Rational[3, 4], 1, 1, 1}, 
+              SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}, {
+            BSplineCurve[{{0., -1.1}, {1.1, -1.1}, {1.1, 1.1}, {0., 
+              1.1}, {-1.1, 1.1}, {-1.1, -1.1}, {0., -1.1}}, 
+              SplineKnots -> {
+               0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                Rational[3, 4], 1, 1, 1}, 
+              SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}}],
+          Annulus[{0, 0}, {1.1, 1.5}]]}, 
+        {GrayLevel[1], 
+         PolygonBox[{{-1, -1}, {-0.6, -1.2}, {1, 1}, {0.6, 1.2}}]}}, {{{0.25, 
+        0.}, {0., 0.25}}, Center}], {0.8, 7.2}], 
+     GeometricTransformationBox[GeometricTransformationBox[{
+        {GrayLevel[1], 
+         InterpretationBox[
+          FilledCurveBox[{{
+            BSplineCurve[{{0., -1.5}, {1.5, -1.5}, {1.5, 1.5}, {0., 
+              1.5}, {-1.5, 1.5}, {-1.5, -1.5}, {0., -1.5}}, 
+              SplineKnots -> {
+               0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                Rational[3, 4], 1, 1, 1}, 
+              SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}, {
+            BSplineCurve[{{0., -1.1}, {1.1, -1.1}, {1.1, 1.1}, {0., 
+              1.1}, {-1.1, 1.1}, {-1.1, -1.1}, {0., -1.1}}, 
+              SplineKnots -> {
+               0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                Rational[3, 4], 1, 1, 1}, 
+              SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}}],
+          Annulus[{0, 0}, {1.1, 1.5}]]}, 
+        {GrayLevel[1], 
+         PolygonBox[{{-1, -1}, {-0.6, -1.2}, {1, 1}, {0.6, 1.2}}]}}, {{{0.25, 
+        0.}, {0., 0.25}}, Center}], {4.2, 0.8}], 
+     GeometricTransformationBox[GeometricTransformationBox[{
+        {RGBColor[0, 0, 1], 
+         InterpretationBox[
+          FilledCurveBox[{{
+            BSplineCurve[{{0., -1.5}, {1.5, -1.5}, {1.5, 1.5}, {0., 
+              1.5}, {-1.5, 1.5}, {-1.5, -1.5}, {0., -1.5}}, 
+              SplineKnots -> {
+               0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                Rational[3, 4], 1, 1, 1}, 
+              SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}, {
+            BSplineCurve[{{0., -1.1}, {1.1, -1.1}, {1.1, 1.1}, {0., 
+              1.1}, {-1.1, 1.1}, {-1.1, -1.1}, {0., -1.1}}, 
+              SplineKnots -> {
+               0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                Rational[3, 4], 1, 1, 1}, 
+              SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}}],
+          Annulus[{0, 0}, {1.1, 1.5}]]}, 
+        {RGBColor[0, 0, 1], 
+         PolygonBox[{{-1, -1}, {-0.6, -1.2}, {1, 1}, {0.6, 1.2}}]}}, {{{0.9, 
+        0.}, {0., 0.9}}, Center}], {2.5, 4}]}, {24, 0}], 
+   GeometricTransformationBox[{
+     {FaceForm[RGBColor[1, 0, 0]], RectangleBox[{0.3, 0.3}, {4.7, 7.7},
+       RoundingRadius->0.2]}, 
+     {GrayLevel[1], 
+      GeometricTransformationBox[
+       DiskBox[{2.5, 4}, {3.5, 1.9}], {{{0.5, -0.8660254037844386}, {
+        0.8660254037844386, 0.5}}, Center}]}, 
+     {EdgeForm[{GrayLevel[0], Thickness[Tiny]}], FaceForm[{GrayLevel[0], 
+      Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+       RoundingRadius->0.4]}, 
+     GeometricTransformationBox[
+      GeometricTransformationBox[{GeometricTransformationBox[{
+          {FaceForm[GrayLevel[1]], 
+           DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+          {FaceForm[GrayLevel[1]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+          {FaceForm[GrayLevel[1]], 
+           TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+            "Triangle"]}}, {{{0.7071067811865475, -0.7071067811865475}, {
+          0.7071067811865475, 0.7071067811865475}}, Center}], 
+        GeometricTransformationBox[
+         GeometricTransformationBox[GeometricTransformationBox[{
+            {FaceForm[GrayLevel[1]], 
+             DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+            {FaceForm[GrayLevel[1]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+            {FaceForm[GrayLevel[1]], 
+             TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+              "Triangle"]}}, {{{-1, 0}, {0, -1}}, Center}], {0, -1.9}], {{{
+          0.7071067811865475, -0.7071067811865475}, {0.7071067811865475, 
+          0.7071067811865475}}, Center}]}, {{{0.25, 0.}, {0., 0.25}}, 
+        Center}], {0.3, 7.5}], 
+     GeometricTransformationBox[
+      GeometricTransformationBox[{GeometricTransformationBox[{
+          {FaceForm[GrayLevel[1]], 
+           DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+          {FaceForm[GrayLevel[1]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+          {FaceForm[GrayLevel[1]], 
+           TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+            "Triangle"]}}, {{{0.7071067811865475, -0.7071067811865475}, {
+          0.7071067811865475, 0.7071067811865475}}, Center}], 
+        GeometricTransformationBox[
+         GeometricTransformationBox[GeometricTransformationBox[{
+            {FaceForm[GrayLevel[1]], 
+             DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+            {FaceForm[GrayLevel[1]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+            {FaceForm[GrayLevel[1]], 
+             TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+              "Triangle"]}}, {{{-1, 0}, {0, -1}}, Center}], {0, -1.9}], {{{
+          0.7071067811865475, -0.7071067811865475}, {0.7071067811865475, 
+          0.7071067811865475}}, Center}]}, {{{0.25, 0.}, {0., 0.25}}, 
+        Center}], {3.8, 1.4}], 
+     GeometricTransformationBox[
+      GeometricTransformationBox[{GeometricTransformationBox[{
+          {FaceForm[RGBColor[1, 0, 0]], 
+           DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+          {FaceForm[RGBColor[1, 0, 0]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+          {FaceForm[RGBColor[1, 0, 0]], 
+           TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+            "Triangle"]}}, {{{0.7071067811865475, -0.7071067811865475}, {
+          0.7071067811865475, 0.7071067811865475}}, Center}], 
+        GeometricTransformationBox[
+         GeometricTransformationBox[GeometricTransformationBox[{
+            {FaceForm[RGBColor[1, 0, 0]], 
+             DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+            {FaceForm[RGBColor[1, 0, 0]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+            {FaceForm[RGBColor[1, 0, 0]], 
+             TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+              "Triangle"]}}, {{{-1, 0}, {0, -1}}, Center}], {0, -1.9}], {{{
+          0.7071067811865475, -0.7071067811865475}, {0.7071067811865475, 
+          0.7071067811865475}}, Center}]}, {{{0.9, 0.}, {0., 0.9}}, 
+        Center}], {2, 4.5}]}, {30, 0}], GeometricTransformationBox[{
+     {FaceForm[GrayLevel[0]], RectangleBox[{0.3, 0.3}, {4.7, 7.7},
+       RoundingRadius->0.2]}, 
+     {GrayLevel[1], 
+      GeometricTransformationBox[
+       DiskBox[{2.5, 4}, {3.5, 1.9}], {{{0.5, -0.8660254037844386}, {
+        0.8660254037844386, 0.5}}, Center}]}, 
+     {EdgeForm[{GrayLevel[0], Thickness[Tiny]}], FaceForm[{GrayLevel[0], 
+      Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+       RoundingRadius->0.4]}, 
+     GeometricTransformationBox[
+      GeometricTransformationBox[{GeometricTransformationBox[
+         {GrayLevel[1], DiskBox[{2.5, 4}, {3.5, 1.9}]}, {{{
+          0.5, -0.8660254037844386}, {0.8660254037844386, 0.5}}, Center}], 
+        GeometricTransformationBox[
+         {RGBColor[0, 0, 1], 
+          DiskBox[{2.5, 4}, {3.3, 1.7}, {-1.2817698026646356`, 
+           0.2827433388230814}]}, {{{0.5, -0.8660254037844386}, {
+          0.8660254037844386, 0.5}}, {
+          4.714101615137754, -0.16506350946109638`}}], 
+        GeometricTransformationBox[
+         {RGBColor[1, 0, 0], 
+          DiskBox[{2.5, 4}, {3.3, 1.7}, {0.2827433388230814, 
+           1.8598228509251575`}]}, {{{0.5, -0.8660254037844386}, {
+          0.8660254037844386, 0.5}}, {
+          4.714101615137754, -0.16506350946109638`}}], 
+        GeometricTransformationBox[
+         {RGBColor[1, 1, 0], 
+          DiskBox[{2.5, 4}, {3.3, 1.7}, {1.8598228509251575`, 
+           3.4243359924128747`}]}, {{{0.5, -0.8660254037844386}, {
+          0.8660254037844386, 0.5}}, {
+          4.714101615137754, -0.16506350946109638`}}], 
+        GeometricTransformationBox[
+         {RGBColor[0, 1, 0], 
+          DiskBox[{2.5, 4}, {3.3, 1.7}, {3.4243359924128747`, 
+           5.001415504514951}]}, {{{0.5, -0.8660254037844386}, {
+          0.8660254037844386, 0.5}}, {
+          4.714101615137754, -0.16506350946109638`}}]}, {{{0.2, 0.}, {0., 
+        0.2}}, Center}], {-1.6, 2.9}], 
+     GeometricTransformationBox[
+      GeometricTransformationBox[{GeometricTransformationBox[
+         {GrayLevel[1], DiskBox[{2.5, 4}, {3.5, 1.9}]}, {{{
+          0.5, -0.8660254037844386}, {0.8660254037844386, 0.5}}, Center}], 
+        GeometricTransformationBox[
+         {RGBColor[0, 0, 1], 
+          DiskBox[{2.5, 4}, {3.3, 1.7}, {-1.2817698026646356`, 
+           0.2827433388230814}]}, {{{0.5, -0.8660254037844386}, {
+          0.8660254037844386, 0.5}}, {
+          4.714101615137754, -0.16506350946109638`}}], 
+        GeometricTransformationBox[
+         {RGBColor[1, 0, 0], 
+          DiskBox[{2.5, 4}, {3.3, 1.7}, {0.2827433388230814, 
+           1.8598228509251575`}]}, {{{0.5, -0.8660254037844386}, {
+          0.8660254037844386, 0.5}}, {
+          4.714101615137754, -0.16506350946109638`}}], 
+        GeometricTransformationBox[
+         {RGBColor[1, 1, 0], 
+          DiskBox[{2.5, 4}, {3.3, 1.7}, {1.8598228509251575`, 
+           3.4243359924128747`}]}, {{{0.5, -0.8660254037844386}, {
+          0.8660254037844386, 0.5}}, {
+          4.714101615137754, -0.16506350946109638`}}], 
+        GeometricTransformationBox[
+         {RGBColor[0, 1, 0], 
+          DiskBox[{2.5, 4}, {3.3, 1.7}, {3.4243359924128747`, 
+           5.001415504514951}]}, {{{0.5, -0.8660254037844386}, {
+          0.8660254037844386, 0.5}}, {
+          4.714101615137754, -0.16506350946109638`}}]}, {{{0.2, 0.}, {0., 
+        0.2}}, Center}], {1.6, -2.9}], {GeometricTransformationBox[
+       {GrayLevel[1], DiskBox[{2.5, 4}, {3.5, 1.9}]}, {{{
+        0.5, -0.8660254037844386}, {0.8660254037844386, 0.5}}, Center}], 
+      GeometricTransformationBox[
+       {RGBColor[0, 0, 1], 
+        DiskBox[{2.5, 4}, {3.3, 1.7}, {-1.2817698026646356`, 
+         0.2827433388230814}]}, {{{0.5, -0.8660254037844386}, {
+        0.8660254037844386, 0.5}}, {
+        4.714101615137754, -0.16506350946109638`}}], 
+      GeometricTransformationBox[
+       {RGBColor[1, 0, 0], 
+        DiskBox[{2.5, 4}, {3.3, 1.7}, {0.2827433388230814, 
+         1.8598228509251575`}]}, {{{0.5, -0.8660254037844386}, {
+        0.8660254037844386, 0.5}}, {
+        4.714101615137754, -0.16506350946109638`}}], 
+      GeometricTransformationBox[
+       {RGBColor[1, 1, 0], 
+        DiskBox[{2.5, 4}, {3.3, 1.7}, {1.8598228509251575`, 
+         3.4243359924128747`}]}, {{{0.5, -0.8660254037844386}, {
+        0.8660254037844386, 0.5}}, {
+        4.714101615137754, -0.16506350946109638`}}], 
+      GeometricTransformationBox[
+       {RGBColor[0, 1, 0], 
+        DiskBox[{2.5, 4}, {3.3, 1.7}, {3.4243359924128747`, 
+         5.001415504514951}]}, {{{0.5, -0.8660254037844386}, {
+        0.8660254037844386, 0.5}}, {
+        4.714101615137754, -0.16506350946109638`}}]}}, {36, 0}], 
+   GeometricTransformationBox[{
+     {FaceForm[RGBColor[0, 1, 0]], RectangleBox[{0.3, 0.3}, {4.7, 7.7},
+       RoundingRadius->0.2]}, 
+     {GrayLevel[1], 
+      GeometricTransformationBox[
+       DiskBox[{2.5, 4}, {3.5, 1.9}], {{{0.5, -0.8660254037844386}, {
+        0.8660254037844386, 0.5}}, Center}]}, 
+     {EdgeForm[{GrayLevel[0], Thickness[Tiny]}], FaceForm[{GrayLevel[0], 
+      Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+       RoundingRadius->0.4]}, InsetBox[
+      StyleBox["3",
+       StripOnInput->False,
+       LineColor->GrayLevel[1],
+       FrontFaceColor->GrayLevel[1],
+       BackFaceColor->GrayLevel[1],
+       GraphicsColor->GrayLevel[1],
+       FontSize->20,
+       FontWeight->Bold,
+       FontSlant->Italic,
+       FontColor->GrayLevel[1]], {0.7, 7.2}], InsetBox[
+      StyleBox["3",
+       StripOnInput->False,
+       LineColor->GrayLevel[1],
+       FrontFaceColor->GrayLevel[1],
+       BackFaceColor->GrayLevel[1],
+       GraphicsColor->GrayLevel[1],
+       FontSize->20,
+       FontWeight->Bold,
+       FontSlant->Italic,
+       FontColor->GrayLevel[1]], {4.3, 0.8}], InsetBox[
+      StyleBox["3",
+       StripOnInput->False,
+       LineColor->RGBColor[0, 1, 0],
+       FrontFaceColor->RGBColor[0, 1, 0],
+       BackFaceColor->RGBColor[0, 1, 0],
+       GraphicsColor->RGBColor[0, 1, 0],
+       FontSize->80,
+       FontWeight->Bold,
+       FontSlant->Italic,
+       FontColor->RGBColor[0, 1, 0]], {2.3, 4}]}, {0, -9}], 
+   GeometricTransformationBox[{
+     {FaceForm[RGBColor[0, 0, 1]], RectangleBox[{0.3, 0.3}, {4.7, 7.7},
+       RoundingRadius->0.2]}, 
+     {GrayLevel[1], 
+      GeometricTransformationBox[
+       DiskBox[{2.5, 4}, {3.5, 1.9}], {{{0.5, -0.8660254037844386}, {
+        0.8660254037844386, 0.5}}, Center}]}, 
+     {EdgeForm[{GrayLevel[0], Thickness[Tiny]}], FaceForm[{GrayLevel[0], 
+      Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+       RoundingRadius->0.4]}, 
+     GeometricTransformationBox[GeometricTransformationBox[{
+        {GrayLevel[1], 
+         InterpretationBox[
+          FilledCurveBox[{{
+            BSplineCurve[{{0., -1.5}, {1.5, -1.5}, {1.5, 1.5}, {0., 
+              1.5}, {-1.5, 1.5}, {-1.5, -1.5}, {0., -1.5}}, 
+              SplineKnots -> {
+               0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                Rational[3, 4], 1, 1, 1}, 
+              SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}, {
+            BSplineCurve[{{0., -1.1}, {1.1, -1.1}, {1.1, 1.1}, {0., 
+              1.1}, {-1.1, 1.1}, {-1.1, -1.1}, {0., -1.1}}, 
+              SplineKnots -> {
+               0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                Rational[3, 4], 1, 1, 1}, 
+              SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}}],
+          Annulus[{0, 0}, {1.1, 1.5}]]}, 
+        {GrayLevel[1], 
+         PolygonBox[{{-1, -1}, {-0.6, -1.2}, {1, 1}, {0.6, 1.2}}]}}, {{{0.25, 
+        0.}, {0., 0.25}}, Center}], {0.8, 7.2}], 
+     GeometricTransformationBox[GeometricTransformationBox[{
+        {GrayLevel[1], 
+         InterpretationBox[
+          FilledCurveBox[{{
+            BSplineCurve[{{0., -1.5}, {1.5, -1.5}, {1.5, 1.5}, {0., 
+              1.5}, {-1.5, 1.5}, {-1.5, -1.5}, {0., -1.5}}, 
+              SplineKnots -> {
+               0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                Rational[3, 4], 1, 1, 1}, 
+              SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}, {
+            BSplineCurve[{{0., -1.1}, {1.1, -1.1}, {1.1, 1.1}, {0., 
+              1.1}, {-1.1, 1.1}, {-1.1, -1.1}, {0., -1.1}}, 
+              SplineKnots -> {
+               0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                Rational[3, 4], 1, 1, 1}, 
+              SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}}],
+          Annulus[{0, 0}, {1.1, 1.5}]]}, 
+        {GrayLevel[1], 
+         PolygonBox[{{-1, -1}, {-0.6, -1.2}, {1, 1}, {0.6, 1.2}}]}}, {{{0.25, 
+        0.}, {0., 0.25}}, Center}], {4.2, 0.8}], 
+     GeometricTransformationBox[GeometricTransformationBox[{
+        {RGBColor[0, 0, 1], 
+         InterpretationBox[
+          FilledCurveBox[{{
+            BSplineCurve[{{0., -1.5}, {1.5, -1.5}, {1.5, 1.5}, {0., 
+              1.5}, {-1.5, 1.5}, {-1.5, -1.5}, {0., -1.5}}, 
+              SplineKnots -> {
+               0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                Rational[3, 4], 1, 1, 1}, 
+              SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}, {
+            BSplineCurve[{{0., -1.1}, {1.1, -1.1}, {1.1, 1.1}, {0., 
+              1.1}, {-1.1, 1.1}, {-1.1, -1.1}, {0., -1.1}}, 
+              SplineKnots -> {
+               0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                Rational[3, 4], 1, 1, 1}, 
+              SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}}],
+          Annulus[{0, 0}, {1.1, 1.5}]]}, 
+        {RGBColor[0, 0, 1], 
+         PolygonBox[{{-1, -1}, {-0.6, -1.2}, {1, 1}, {0.6, 1.2}}]}}, {{{0.9, 
+        0.}, {0., 0.9}}, Center}], {2.5, 4}]}, {6, -9}], 
+   GeometricTransformationBox[{
+     {FaceForm[RGBColor[1, 0, 0]], RectangleBox[{0.3, 0.3}, {4.7, 7.7},
+       RoundingRadius->0.2]}, 
+     {GrayLevel[1], 
+      GeometricTransformationBox[
+       DiskBox[{2.5, 4}, {3.5, 1.9}], {{{0.5, -0.8660254037844386}, {
+        0.8660254037844386, 0.5}}, Center}]}, 
+     {EdgeForm[{GrayLevel[0], Thickness[Tiny]}], FaceForm[{GrayLevel[0], 
+      Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+       RoundingRadius->0.4]}, 
+     GeometricTransformationBox[
+      GeometricTransformationBox[{GeometricTransformationBox[{
+          {FaceForm[GrayLevel[1]], 
+           DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+          {FaceForm[GrayLevel[1]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+          {FaceForm[GrayLevel[1]], 
+           TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+            "Triangle"]}}, {{{0.7071067811865475, -0.7071067811865475}, {
+          0.7071067811865475, 0.7071067811865475}}, Center}], 
+        GeometricTransformationBox[
+         GeometricTransformationBox[GeometricTransformationBox[{
+            {FaceForm[GrayLevel[1]], 
+             DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+            {FaceForm[GrayLevel[1]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+            {FaceForm[GrayLevel[1]], 
+             TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+              "Triangle"]}}, {{{-1, 0}, {0, -1}}, Center}], {0, -1.9}], {{{
+          0.7071067811865475, -0.7071067811865475}, {0.7071067811865475, 
+          0.7071067811865475}}, Center}]}, {{{0.25, 0.}, {0., 0.25}}, 
+        Center}], {0.3, 7.5}], 
+     GeometricTransformationBox[
+      GeometricTransformationBox[{GeometricTransformationBox[{
+          {FaceForm[GrayLevel[1]], 
+           DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+          {FaceForm[GrayLevel[1]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+          {FaceForm[GrayLevel[1]], 
+           TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+            "Triangle"]}}, {{{0.7071067811865475, -0.7071067811865475}, {
+          0.7071067811865475, 0.7071067811865475}}, Center}], 
+        GeometricTransformationBox[
+         GeometricTransformationBox[GeometricTransformationBox[{
+            {FaceForm[GrayLevel[1]], 
+             DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+            {FaceForm[GrayLevel[1]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+            {FaceForm[GrayLevel[1]], 
+             TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+              "Triangle"]}}, {{{-1, 0}, {0, -1}}, Center}], {0, -1.9}], {{{
+          0.7071067811865475, -0.7071067811865475}, {0.7071067811865475, 
+          0.7071067811865475}}, Center}]}, {{{0.25, 0.}, {0., 0.25}}, 
+        Center}], {3.8, 1.4}], 
+     GeometricTransformationBox[
+      GeometricTransformationBox[{GeometricTransformationBox[{
+          {FaceForm[RGBColor[1, 0, 0]], 
+           DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+          {FaceForm[RGBColor[1, 0, 0]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+          {FaceForm[RGBColor[1, 0, 0]], 
+           TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+            "Triangle"]}}, {{{0.7071067811865475, -0.7071067811865475}, {
+          0.7071067811865475, 0.7071067811865475}}, Center}], 
+        GeometricTransformationBox[
+         GeometricTransformationBox[GeometricTransformationBox[{
+            {FaceForm[RGBColor[1, 0, 0]], 
+             DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+            {FaceForm[RGBColor[1, 0, 0]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+            {FaceForm[RGBColor[1, 0, 0]], 
+             TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+              "Triangle"]}}, {{{-1, 0}, {0, -1}}, Center}], {0, -1.9}], {{{
+          0.7071067811865475, -0.7071067811865475}, {0.7071067811865475, 
+          0.7071067811865475}}, Center}]}, {{{0.9, 0.}, {0., 0.9}}, 
+        Center}], {2, 4.5}]}, {12, -9}], GeometricTransformationBox[{
+     {FaceForm[GrayLevel[0]], RectangleBox[{0.3, 0.3}, {4.7, 7.7},
+       RoundingRadius->0.2]}, 
+     {GrayLevel[1], 
+      GeometricTransformationBox[
+       DiskBox[{2.5, 4}, {3.5, 1.9}], {{{0.5, -0.8660254037844386}, {
+        0.8660254037844386, 0.5}}, Center}]}, 
+     {EdgeForm[{GrayLevel[0], Thickness[Tiny]}], FaceForm[{GrayLevel[0], 
+      Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+       RoundingRadius->0.4]}, 
+     GeometricTransformationBox[
+      GeometricTransformationBox[{GeometricTransformationBox[
+         {GrayLevel[1], DiskBox[{2.5, 4}, {3.5, 1.9}]}, {{{
+          0.5, -0.8660254037844386}, {0.8660254037844386, 0.5}}, Center}], 
+        GeometricTransformationBox[
+         {RGBColor[0, 0, 1], 
+          DiskBox[{2.5, 4}, {3.3, 1.7}, {-1.2817698026646356`, 
+           0.2827433388230814}]}, {{{0.5, -0.8660254037844386}, {
+          0.8660254037844386, 0.5}}, {
+          4.714101615137754, -0.16506350946109638`}}], 
+        GeometricTransformationBox[
+         {RGBColor[1, 0, 0], 
+          DiskBox[{2.5, 4}, {3.3, 1.7}, {0.2827433388230814, 
+           1.8598228509251575`}]}, {{{0.5, -0.8660254037844386}, {
+          0.8660254037844386, 0.5}}, {
+          4.714101615137754, -0.16506350946109638`}}], 
+        GeometricTransformationBox[
+         {RGBColor[1, 1, 0], 
+          DiskBox[{2.5, 4}, {3.3, 1.7}, {1.8598228509251575`, 
+           3.4243359924128747`}]}, {{{0.5, -0.8660254037844386}, {
+          0.8660254037844386, 0.5}}, {
+          4.714101615137754, -0.16506350946109638`}}], 
+        GeometricTransformationBox[
+         {RGBColor[0, 1, 0], 
+          DiskBox[{2.5, 4}, {3.3, 1.7}, {3.4243359924128747`, 
+           5.001415504514951}]}, {{{0.5, -0.8660254037844386}, {
+          0.8660254037844386, 0.5}}, {
+          4.714101615137754, -0.16506350946109638`}}]}, {{{0.2, 0.}, {0., 
+        0.2}}, Center}], {-1.6, 2.9}], 
+     GeometricTransformationBox[
+      GeometricTransformationBox[{GeometricTransformationBox[
+         {GrayLevel[1], DiskBox[{2.5, 4}, {3.5, 1.9}]}, {{{
+          0.5, -0.8660254037844386}, {0.8660254037844386, 0.5}}, Center}], 
+        GeometricTransformationBox[
+         {RGBColor[0, 0, 1], 
+          DiskBox[{2.5, 4}, {3.3, 1.7}, {-1.2817698026646356`, 
+           0.2827433388230814}]}, {{{0.5, -0.8660254037844386}, {
+          0.8660254037844386, 0.5}}, {
+          4.714101615137754, -0.16506350946109638`}}], 
+        GeometricTransformationBox[
+         {RGBColor[1, 0, 0], 
+          DiskBox[{2.5, 4}, {3.3, 1.7}, {0.2827433388230814, 
+           1.8598228509251575`}]}, {{{0.5, -0.8660254037844386}, {
+          0.8660254037844386, 0.5}}, {
+          4.714101615137754, -0.16506350946109638`}}], 
+        GeometricTransformationBox[
+         {RGBColor[1, 1, 0], 
+          DiskBox[{2.5, 4}, {3.3, 1.7}, {1.8598228509251575`, 
+           3.4243359924128747`}]}, {{{0.5, -0.8660254037844386}, {
+          0.8660254037844386, 0.5}}, {
+          4.714101615137754, -0.16506350946109638`}}], 
+        GeometricTransformationBox[
+         {RGBColor[0, 1, 0], 
+          DiskBox[{2.5, 4}, {3.3, 1.7}, {3.4243359924128747`, 
+           5.001415504514951}]}, {{{0.5, -0.8660254037844386}, {
+          0.8660254037844386, 0.5}}, {
+          4.714101615137754, -0.16506350946109638`}}]}, {{{0.2, 0.}, {0., 
+        0.2}}, Center}], {1.6, -2.9}], {GeometricTransformationBox[
+       {GrayLevel[1], DiskBox[{2.5, 4}, {3.5, 1.9}]}, {{{
+        0.5, -0.8660254037844386}, {0.8660254037844386, 0.5}}, Center}], 
+      GeometricTransformationBox[
+       {RGBColor[0, 0, 1], 
+        DiskBox[{2.5, 4}, {3.3, 1.7}, {-1.2817698026646356`, 
+         0.2827433388230814}]}, {{{0.5, -0.8660254037844386}, {
+        0.8660254037844386, 0.5}}, {
+        4.714101615137754, -0.16506350946109638`}}], 
+      GeometricTransformationBox[
+       {RGBColor[1, 0, 0], 
+        DiskBox[{2.5, 4}, {3.3, 1.7}, {0.2827433388230814, 
+         1.8598228509251575`}]}, {{{0.5, -0.8660254037844386}, {
+        0.8660254037844386, 0.5}}, {
+        4.714101615137754, -0.16506350946109638`}}], 
+      GeometricTransformationBox[
+       {RGBColor[1, 1, 0], 
+        DiskBox[{2.5, 4}, {3.3, 1.7}, {1.8598228509251575`, 
+         3.4243359924128747`}]}, {{{0.5, -0.8660254037844386}, {
+        0.8660254037844386, 0.5}}, {
+        4.714101615137754, -0.16506350946109638`}}], 
+      GeometricTransformationBox[
+       {RGBColor[0, 1, 0], 
+        DiskBox[{2.5, 4}, {3.3, 1.7}, {3.4243359924128747`, 
+         5.001415504514951}]}, {{{0.5, -0.8660254037844386}, {
+        0.8660254037844386, 0.5}}, {
+        4.714101615137754, -0.16506350946109638`}}]}}, {18, -9}], 
+   GeometricTransformationBox[{
+     {FaceForm[RGBColor[0, 1, 0]], RectangleBox[{0.3, 0.3}, {4.7, 7.7},
+       RoundingRadius->0.2]}, 
+     {GrayLevel[1], 
+      GeometricTransformationBox[
+       DiskBox[{2.5, 4}, {3.5, 1.9}], {{{0.5, -0.8660254037844386}, {
+        0.8660254037844386, 0.5}}, Center}]}, 
+     {EdgeForm[{GrayLevel[0], Thickness[Tiny]}], FaceForm[{GrayLevel[0], 
+      Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+       RoundingRadius->0.4]}, InsetBox[
+      StyleBox["3",
+       StripOnInput->False,
+       LineColor->GrayLevel[1],
+       FrontFaceColor->GrayLevel[1],
+       BackFaceColor->GrayLevel[1],
+       GraphicsColor->GrayLevel[1],
+       FontSize->20,
+       FontWeight->Bold,
+       FontSlant->Italic,
+       FontColor->GrayLevel[1]], {0.7, 7.2}], InsetBox[
+      StyleBox["3",
+       StripOnInput->False,
+       LineColor->GrayLevel[1],
+       FrontFaceColor->GrayLevel[1],
+       BackFaceColor->GrayLevel[1],
+       GraphicsColor->GrayLevel[1],
+       FontSize->20,
+       FontWeight->Bold,
+       FontSlant->Italic,
+       FontColor->GrayLevel[1]], {4.3, 0.8}], InsetBox[
+      StyleBox["3",
+       StripOnInput->False,
+       LineColor->RGBColor[0, 1, 0],
+       FrontFaceColor->RGBColor[0, 1, 0],
+       BackFaceColor->RGBColor[0, 1, 0],
+       GraphicsColor->RGBColor[0, 1, 0],
+       FontSize->80,
+       FontWeight->Bold,
+       FontSlant->Italic,
+       FontColor->RGBColor[0, 1, 0]], {2.3, 4}]}, {24, -9}], 
+   GeometricTransformationBox[{
+     {FaceForm[RGBColor[0, 0, 1]], RectangleBox[{0.3, 0.3}, {4.7, 7.7},
+       RoundingRadius->0.2]}, 
+     {GrayLevel[1], 
+      GeometricTransformationBox[
+       DiskBox[{2.5, 4}, {3.5, 1.9}], {{{0.5, -0.8660254037844386}, {
+        0.8660254037844386, 0.5}}, Center}]}, 
+     {EdgeForm[{GrayLevel[0], Thickness[Tiny]}], FaceForm[{GrayLevel[0], 
+      Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+       RoundingRadius->0.4]}, 
+     GeometricTransformationBox[GeometricTransformationBox[{
+        {GrayLevel[1], 
+         InterpretationBox[
+          FilledCurveBox[{{
+            BSplineCurve[{{0., -1.5}, {1.5, -1.5}, {1.5, 1.5}, {0., 
+              1.5}, {-1.5, 1.5}, {-1.5, -1.5}, {0., -1.5}}, 
+              SplineKnots -> {
+               0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                Rational[3, 4], 1, 1, 1}, 
+              SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}, {
+            BSplineCurve[{{0., -1.1}, {1.1, -1.1}, {1.1, 1.1}, {0., 
+              1.1}, {-1.1, 1.1}, {-1.1, -1.1}, {0., -1.1}}, 
+              SplineKnots -> {
+               0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                Rational[3, 4], 1, 1, 1}, 
+              SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}}],
+          Annulus[{0, 0}, {1.1, 1.5}]]}, 
+        {GrayLevel[1], 
+         PolygonBox[{{-1, -1}, {-0.6, -1.2}, {1, 1}, {0.6, 1.2}}]}}, {{{0.25, 
+        0.}, {0., 0.25}}, Center}], {0.8, 7.2}], 
+     GeometricTransformationBox[GeometricTransformationBox[{
+        {GrayLevel[1], 
+         InterpretationBox[
+          FilledCurveBox[{{
+            BSplineCurve[{{0., -1.5}, {1.5, -1.5}, {1.5, 1.5}, {0., 
+              1.5}, {-1.5, 1.5}, {-1.5, -1.5}, {0., -1.5}}, 
+              SplineKnots -> {
+               0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                Rational[3, 4], 1, 1, 1}, 
+              SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}, {
+            BSplineCurve[{{0., -1.1}, {1.1, -1.1}, {1.1, 1.1}, {0., 
+              1.1}, {-1.1, 1.1}, {-1.1, -1.1}, {0., -1.1}}, 
+              SplineKnots -> {
+               0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                Rational[3, 4], 1, 1, 1}, 
+              SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}}],
+          Annulus[{0, 0}, {1.1, 1.5}]]}, 
+        {GrayLevel[1], 
+         PolygonBox[{{-1, -1}, {-0.6, -1.2}, {1, 1}, {0.6, 1.2}}]}}, {{{0.25, 
+        0.}, {0., 0.25}}, Center}], {4.2, 0.8}], 
+     GeometricTransformationBox[GeometricTransformationBox[{
+        {RGBColor[0, 0, 1], 
+         InterpretationBox[
+          FilledCurveBox[{{
+            BSplineCurve[{{0., -1.5}, {1.5, -1.5}, {1.5, 1.5}, {0., 
+              1.5}, {-1.5, 1.5}, {-1.5, -1.5}, {0., -1.5}}, 
+              SplineKnots -> {
+               0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                Rational[3, 4], 1, 1, 1}, 
+              SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}, {
+            BSplineCurve[{{0., -1.1}, {1.1, -1.1}, {1.1, 1.1}, {0., 
+              1.1}, {-1.1, 1.1}, {-1.1, -1.1}, {0., -1.1}}, 
+              SplineKnots -> {
+               0, 0, 0, Rational[1, 4], Rational[1, 2], Rational[1, 2], 
+                Rational[3, 4], 1, 1, 1}, 
+              SplineWeights -> {2, 1, 1, 2, 1, 1, 2}, SplineDegree -> 2]}}],
+          Annulus[{0, 0}, {1.1, 1.5}]]}, 
+        {RGBColor[0, 0, 1], 
+         PolygonBox[{{-1, -1}, {-0.6, -1.2}, {1, 1}, {0.6, 1.2}}]}}, {{{0.9, 
+        0.}, {0., 0.9}}, Center}], {2.5, 4}]}, {30, -9}], 
+   GeometricTransformationBox[{
+     {FaceForm[RGBColor[1, 0, 0]], RectangleBox[{0.3, 0.3}, {4.7, 7.7},
+       RoundingRadius->0.2]}, 
+     {GrayLevel[1], 
+      GeometricTransformationBox[
+       DiskBox[{2.5, 4}, {3.5, 1.9}], {{{0.5, -0.8660254037844386}, {
+        0.8660254037844386, 0.5}}, Center}]}, 
+     {EdgeForm[{GrayLevel[0], Thickness[Tiny]}], FaceForm[{GrayLevel[0], 
+      Opacity[0]}], RectangleBox[{0, 0}, {5, 8},
+       RoundingRadius->0.4]}, 
+     GeometricTransformationBox[
+      GeometricTransformationBox[{GeometricTransformationBox[{
+          {FaceForm[GrayLevel[1]], 
+           DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+          {FaceForm[GrayLevel[1]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+          {FaceForm[GrayLevel[1]], 
+           TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+            "Triangle"]}}, {{{0.7071067811865475, -0.7071067811865475}, {
+          0.7071067811865475, 0.7071067811865475}}, Center}], 
+        GeometricTransformationBox[
+         GeometricTransformationBox[GeometricTransformationBox[{
+            {FaceForm[GrayLevel[1]], 
+             DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+            {FaceForm[GrayLevel[1]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+            {FaceForm[GrayLevel[1]], 
+             TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+              "Triangle"]}}, {{{-1, 0}, {0, -1}}, Center}], {0, -1.9}], {{{
+          0.7071067811865475, -0.7071067811865475}, {0.7071067811865475, 
+          0.7071067811865475}}, Center}]}, {{{0.25, 0.}, {0., 0.25}}, 
+        Center}], {0.3, 7.5}], 
+     GeometricTransformationBox[
+      GeometricTransformationBox[{GeometricTransformationBox[{
+          {FaceForm[GrayLevel[1]], 
+           DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+          {FaceForm[GrayLevel[1]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+          {FaceForm[GrayLevel[1]], 
+           TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+            "Triangle"]}}, {{{0.7071067811865475, -0.7071067811865475}, {
+          0.7071067811865475, 0.7071067811865475}}, Center}], 
+        GeometricTransformationBox[
+         GeometricTransformationBox[GeometricTransformationBox[{
+            {FaceForm[GrayLevel[1]], 
+             DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+            {FaceForm[GrayLevel[1]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+            {FaceForm[GrayLevel[1]], 
+             TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+              "Triangle"]}}, {{{-1, 0}, {0, -1}}, Center}], {0, -1.9}], {{{
+          0.7071067811865475, -0.7071067811865475}, {0.7071067811865475, 
+          0.7071067811865475}}, Center}]}, {{{0.25, 0.}, {0., 0.25}}, 
+        Center}], {3.8, 1.4}], 
+     GeometricTransformationBox[
+      GeometricTransformationBox[{GeometricTransformationBox[{
+          {FaceForm[RGBColor[1, 0, 0]], 
+           DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+          {FaceForm[RGBColor[1, 0, 0]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+          {FaceForm[RGBColor[1, 0, 0]], 
+           TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+            "Triangle"]}}, {{{0.7071067811865475, -0.7071067811865475}, {
+          0.7071067811865475, 0.7071067811865475}}, Center}], 
+        GeometricTransformationBox[
+         GeometricTransformationBox[GeometricTransformationBox[{
+            {FaceForm[RGBColor[1, 0, 0]], 
+             DiskBox[{0, 0}, 1, NCache[{0, Pi}, {0, 3.141592653589793}]]}, 
+            {FaceForm[RGBColor[1, 0, 0]], RectangleBox[{0, 0}, {1.1, 1}]}, 
+            {FaceForm[RGBColor[1, 0, 0]], 
+             TagBox[PolygonBox[{{1, 1.5}, {2, 0.5}, {1, -0.5}}],
+              "Triangle"]}}, {{{-1, 0}, {0, -1}}, Center}], {0, -1.9}], {{{
+          0.7071067811865475, -0.7071067811865475}, {0.7071067811865475, 
+          0.7071067811865475}}, Center}]}, {{{0.9, 0.}, {0., 0.9}}, 
+        Center}], {2, 4.5}]}, {36, -9}]},
+  ImageSize->Full]], "Output",
+ CellChangeTimes->{
+  3.825586707620488*^9, 3.8255870240674443`*^9, 3.825587080552732*^9, 
+   3.825587145848401*^9, {3.82558741939067*^9, 3.825587500952304*^9}},
+ CellLabel->
+  "Out[573]=",ExpressionUUID->"5ccf0411-799d-421f-8d0e-6b8a81536695"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"reverseGraphic", "[", "color_", "]"}], ":=", 
+  RowBox[{"Module", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"reverseSymbol", ",", "otherReverseSymbol"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"reverseSymbol", "=", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"FaceForm", "[", "color", "]"}], ",", 
+          RowBox[{"Disk", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0"}], "}"}], ",", "1", ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "Pi"}], "}"}]}], "]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"FaceForm", "[", "color", "]"}], ",", 
+          RowBox[{"Rectangle", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"1.1", ",", "1"}], "}"}]}], "]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"FaceForm", "[", "color", "]"}], ",", 
+          RowBox[{"Triangle", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"1", ",", "1.5"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"2", ",", "0.5"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", 
+               RowBox[{"-", "0.5"}]}], "}"}]}], "}"}], "]"}]}], "}"}]}], 
+       "}"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"otherReverseSymbol", "=", 
+      RowBox[{"Translate", "[", 
+       RowBox[{
+        RowBox[{"Rotate", "[", 
+         RowBox[{
+          RowBox[{"{", "reverseSymbol", "}"}], ",", 
+          RowBox[{"180", "Degree"}]}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", 
+          RowBox[{"-", "1.9"}]}], "}"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Return", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Rotate", "[", 
+         RowBox[{"reverseSymbol", ",", 
+          RowBox[{"45", "Degree"}]}], "]"}], ",", 
+        RowBox[{"Rotate", "[", 
+         RowBox[{"otherReverseSymbol", ",", 
+          RowBox[{"45", "Degree"}]}], "]"}]}], "}"}], "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.8237972710395355`*^9, 3.8237972742325077`*^9}, {
+   3.823797304971738*^9, 3.8237973129010077`*^9}, {3.8237974052334995`*^9, 
+   3.823797432754033*^9}, {3.8237974645882483`*^9, 3.8237974707428217`*^9}, {
+   3.8237975096023364`*^9, 3.8237975216823144`*^9}, {3.8237975566207438`*^9, 
+   3.8237976393957777`*^9}, {3.8237977236918745`*^9, 3.823797755416087*^9}, {
+   3.8237978657372637`*^9, 3.823797874675898*^9}, {3.8237979050849323`*^9, 
+   3.8237979602568583`*^9}, {3.8237992363606906`*^9, 
+   3.8237992573915024`*^9}, {3.823800042072998*^9, 3.823800156351858*^9}, {
+   3.823801227758933*^9, 3.823801232789075*^9}, {3.8238012705592585`*^9, 
+   3.823801379139011*^9}, 3.823801417435109*^9, {3.82380145564666*^9, 
+   3.8238014998705406`*^9}, {3.82380153006738*^9, 3.8238015906099896`*^9}},
+ CellLabel->
+  "In[385]:=",ExpressionUUID->"d8a03727-d2ee-4d49-8908-34cb794344ee"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"wildGraphic", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Rotate", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"White", ",", 
+         RowBox[{"Disk", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"2.5", ",", "4"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"3.5", ",", "1.9"}], "}"}]}], "]"}]}], "}"}], ",", 
+       RowBox[{"60", "Degree"}]}], "]"}], ",", 
+     RowBox[{"Rotate", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"Blue", ",", 
+         RowBox[{"Disk", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"2.5", ",", "4"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"3.3", ",", "1.7"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "0.408"}], "Pi"}], ",", 
+             RowBox[{"0.09", "Pi"}]}], "}"}]}], "]"}]}], "}"}], ",", 
+       RowBox[{"60", "Degree"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"2.5", ",", "4"}], "}"}]}], "]"}], ",", 
+     RowBox[{"Rotate", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"Red", ",", 
+         RowBox[{"Disk", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"2.5", ",", "4"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"3.3", ",", "1.7"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"0.09", "Pi"}], ",", 
+             RowBox[{"0.592", "Pi"}]}], "}"}]}], "]"}]}], "}"}], ",", 
+       RowBox[{"60", "Degree"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"2.5", ",", "4"}], "}"}]}], "]"}], ",", 
+     RowBox[{"Rotate", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"Yellow", ",", 
+         RowBox[{"Disk", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"2.5", ",", "4"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"3.3", ",", "1.7"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"0.592", "Pi"}], ",", 
+             RowBox[{"1.09", "Pi"}]}], "}"}]}], "]"}]}], "}"}], ",", 
+       RowBox[{"60", "Degree"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"2.5", ",", "4"}], "}"}]}], "]"}], ",", 
+     RowBox[{"Rotate", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"Green", ",", 
+         RowBox[{"Disk", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"2.5", ",", "4"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"3.3", ",", "1.7"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"1.09", "Pi"}], ",", 
+             RowBox[{"1.592", "Pi"}]}], "}"}]}], "]"}]}], "}"}], ",", 
+       RowBox[{"60", "Degree"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"2.5", ",", "4"}], "}"}]}], "]"}]}], "}"}]}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.8239655876933765`*^9, 3.8239656322992673`*^9}, {
+   3.8239657277893934`*^9, 3.823965739646513*^9}, {3.82396578135077*^9, 
+   3.823965785375411*^9}, {3.823965925373431*^9, 3.8239659328264956`*^9}, 
+   3.823965988267696*^9, {3.823966058034051*^9, 3.82396607717486*^9}, {
+   3.8239661198149133`*^9, 3.8239663016394253`*^9}, {3.8239663422685366`*^9, 
+   3.8239664031262302`*^9}, {3.8239664351536493`*^9, 
+   3.8239666132730675`*^9}, {3.8239666737449236`*^9, 
+   3.8239668204971905`*^9}, {3.8239671726589355`*^9, 
+   3.8239672345410347`*^9}, {3.823967278283866*^9, 3.8239672786384106`*^9}, {
+   3.8239673950554037`*^9, 3.8239674369473953`*^9}, {3.823967467431837*^9, 
+   3.8239675205236387`*^9}, {3.8239675655272255`*^9, 
+   3.8239676200039377`*^9}, {3.8239676602253933`*^9, 
+   3.8239676970576077`*^9}, {3.8239677372367907`*^9, 
+   3.8239678528506365`*^9}, {3.82396792080298*^9, 3.823967955277136*^9}, {
+   3.823967992770852*^9, 3.8239680781225667`*^9}, {3.8239681143252287`*^9, 
+   3.8239681802737846`*^9}, {3.823968335163232*^9, 3.8239684285927095`*^9}, {
+   3.8239684966142735`*^9, 3.823968532868966*^9}, {3.823968565313229*^9, 
+   3.823968592005702*^9}, {3.8239686429742274`*^9, 3.823968682345277*^9}, 
+   3.8239687697861533`*^9, 3.8250872289069405`*^9},
+ CellLabel->
+  "In[386]:=",ExpressionUUID->"4220abb6-ed24-4f36-b6c4-ee49ac54eff8"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"skipGraphic", "[", "color_", "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"color", ",", 
+      RowBox[{"Annulus", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "0"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"1.1", ",", "1.5"}], "}"}]}], "]"}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"color", ",", 
+      RowBox[{"Polygon", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "1"}], ",", 
+           RowBox[{"-", "1"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "0.6"}], ",", 
+           RowBox[{"-", "1.2"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "1"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0.6", ",", "1.2"}], "}"}]}], "}"}], "]"}]}], "}"}]}], 
+   "}"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.825089033106036*^9, 3.825089059292186*^9}, {
+  3.8250891703921957`*^9, 3.8250891903568397`*^9}, {3.8250893594034977`*^9, 
+  3.825089365026995*^9}, {3.8250894100325875`*^9, 3.8250895401363916`*^9}, {
+  3.825089596041699*^9, 3.8250896379592657`*^9}, {3.8250903091006618`*^9, 
+  3.825090326700428*^9}, {3.8250906691607714`*^9, 3.8250906860795345`*^9}, {
+  3.825090734248398*^9, 3.8250907365840054`*^9}},
+ CellLabel->
+  "In[387]:=",ExpressionUUID->"d28f0ed3-f9db-4d0b-8a7d-0afe0f73278a"]
+},
+WindowSize->{1152., 585.6},
+WindowMargins->{{
+  Automatic, -5.399999999999864}, {-5.399999999999977, Automatic}},
+FrontEndVersion->"12.1 for Microsoft Windows (64-bit) (June 19, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"33746f4e-8051-41be-b61f-f7ff6eba8cb7"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 15249, 370, 923, "Input",ExpressionUUID->"8af7f6bf-3f11-4d2d-8371-408106a6ed45",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[15832, 394, 1939, 46, 68, "Input",ExpressionUUID->"22eed495-cc49-4907-a318-2abf50b1bd91"],
+Cell[17774, 442, 59827, 1163, 692, "Output",ExpressionUUID->"6383a582-6bb2-4aa6-a3e8-f23040351093"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[77638, 1610, 489, 13, 28, "Input",ExpressionUUID->"ad94ddc5-0514-48d2-8203-d83657ba39ad"],
+Cell[78130, 1625, 6571, 135, 256, "Output",ExpressionUUID->"d0cf2e36-4ec4-414b-b409-dc2f8fed2a1d"]
+}, Open  ]],
+Cell[84716, 1763, 1473, 36, 201, "Input",ExpressionUUID->"12e7b64f-78ae-498d-ab8f-91f6a6b0f39f",
+ InitializationCell->True],
+Cell[86192, 1801, 1486, 41, 49, "Input",ExpressionUUID->"60074d9c-191d-4df2-bf79-17f5dfa2c5ef"],
+Cell[CellGroupData[{
+Cell[87703, 1846, 296, 6, 28, "Input",ExpressionUUID->"0680af30-ff1c-4a2c-9216-7d6dd7bb1fef"],
+Cell[88002, 1854, 26008, 677, 53, "Output",ExpressionUUID->"750cfc3b-4d30-4425-aefc-52298e30c611"]
+}, Open  ]],
+Cell[114025, 2534, 553, 10, 44, "Input",ExpressionUUID->"10bd9fea-4559-40a1-a246-ae73be5e4060",
+ InitializationCell->True],
+Cell[114581, 2546, 1945, 47, 88, "Input",ExpressionUUID->"04d1e2fa-f459-440a-bc6d-4377f19368f5"],
+Cell[CellGroupData[{
+Cell[116551, 2597, 258, 6, 28, "Input",ExpressionUUID->"dc0368d2-4ab4-4adf-8b31-1a5692c23a72"],
+Cell[116812, 2605, 192, 3, 32, "Output",ExpressionUUID->"c77b747e-14c2-4c94-a7c7-4efaae4e4dcf"]
+}, Open  ]],
+Cell[117019, 2611, 222, 4, 28, "Input",ExpressionUUID->"5b8f0736-c4c2-4c4b-aebb-c3fb88614635"],
+Cell[CellGroupData[{
+Cell[117266, 2619, 272, 5, 28, "Input",ExpressionUUID->"6a00c2ad-8f8c-47ea-b6f4-9868e80e57f1"],
+Cell[117541, 2626, 45629, 911, 471, "Output",ExpressionUUID->"5ccf0411-799d-421f-8d0e-6b8a81536695"]
+}, Open  ]],
+Cell[163185, 3540, 3200, 78, 162, "Input",ExpressionUUID->"d8a03727-d2ee-4d49-8908-34cb794344ee",
+ InitializationCell->True],
+Cell[166388, 3620, 4205, 106, 123, "Input",ExpressionUUID->"4220abb6-ed24-4f36-b6c4-ee49ac54eff8",
+ InitializationCell->True],
+Cell[170596, 3728, 1450, 39, 44, "Input",ExpressionUUID->"d28f0ed3-f9db-4d0b-8a7d-0afe0f73278a",
+ InitializationCell->True]
+}
+]
+*)
+
